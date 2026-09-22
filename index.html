@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>L'Alpe des Chaux – Gryon</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  color:white;
+  font-family:Arial,sans-serif;
+  background:
+    linear-gradient(rgba(8,15,22,.35),rgba(8,15,22,.85)),
+    url('https://images.unsplash.com/photo-1483347756197-71ef80e95f73?auto=format&fit=crop&w=1920&q=85')
+    center/cover no-repeat fixed;
+}
+.page{
+  min-height:100vh;
+  padding:5vh 5vw;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.logo{
+  letter-spacing:8px;
+  font-size:2.2vw;
+}
+.logo small{
+  display:block;
+  font-size:1.2vw;
+  margin-top:10px;
+  letter-spacing:6px;
+}
+h1{
+  font-family:Georgia,serif;
+  font-size:6vw;
+  margin:3vh 0 0;
+}
+h2{
+  color:#d6a36d;
+  font-family:Georgia,serif;
+  font-size:3.5vw;
+  margin:0;
+}
+.intro{
+  font-size:1.7vw;
+  line-height:1.5;
+  margin-top:2vh;
+}
+.menu{
+  display:grid;
+  grid-template-columns:repeat(8,1fr);
+  gap:10px;
+  margin-top:4vh;
+}
+.card{
+  min-height:150px;
+  background:rgba(15,15,15,.75);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:12px;
+}
+.card:focus{
+  outline:4px solid #d6a36d;
+  background:rgba(55,45,35,.9);
+}
+.icon{font-size:3vw}
+.name{
+  font-size:1.25vw;
+  margin-top:12px;
+}
+footer{
+  margin-top:3vh;
+  letter-spacing:4px;
+  color:#ddd;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div>
+  <div class="logo">
+    ⛰ L'ALPE DES CHAUX
+    <small>GRYON</small>
+  </div>
+
+  <h1>Bienvenue</h1>
+  <h2>à l'Alpe des Chaux</h2>
+
+  <div class="intro">
+    Nous vous souhaitons un excellent séjour à Gryon<br>
+    et de merveilleux moments en montagne !
+  </div>
+</div>
+
+<div class="menu">
+
+<div class="card" tabindex="0">
+<div class="icon">🏠</div>
+<div class="name">Le logement</div>
+</div>
+
+<div class="card" tabindex="0">
+<div class="icon">📶</div>
+<div class="name">Wi-Fi</div>
+</div>
+
+<div class="card" tabindex="0">
+<div class="icon">🔥</div>
+<div class="name">Cheminée</div>
+</div>
+
+<div class="card" tabindex="0">
+<div class="icon">♻️</div>
+<div class="name">Déchets</div>
+</div>
+
+<div class="card" tabindex="0">
+<div class="icon">🚗</div>
+<div class="name">Parking</div>
+</div>
+
+<div class="card" tabindex="0">
+<div class="icon">🏔️</div>
+<div class="name">Activités</div>
+</div>
+
+<div class="card" tabindex="0">
+<div class="icon">🍴</div>
+<div class="name">Restaurants</div>
+</div>
+
+<div class="card" tabindex="0">
+<div class="icon">🚪</div>
+<div class="name">Départ</div>
+</div>
+
+</div>
+
+<footer>
+NATURE &nbsp; | &nbsp; DÉTENTE &nbsp; | &nbsp; GRAND AIR
+</footer>
+
+</div>
+</body>
+</html>
