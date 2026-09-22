@@ -2,155 +2,313 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>L'Alpe des Chaux – Gryon</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Alpe des Chaux - Gryon</title>
 
 <style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  min-height:100vh;
-  color:white;
-  font-family:Arial,sans-serif;
-  background:
-    linear-gradient(rgba(8,15,22,.35),rgba(8,15,22,.85)),
-    url('https://images.unsplash.com/photo-1483347756197-71ef80e95f73?auto=format&fit=crop&w=1920&q=85')
-    center/cover no-repeat fixed;
+*{
+  box-sizing:border-box;
 }
+
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:white;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10,18,24,.58) 0%,
+      rgba(10,18,24,.30) 45%,
+      rgba(10,18,24,.10) 100%
+    ),
+    url("IMG_20260328_061418.jpg");
+
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+}
+
 .page{
-  min-height:100vh;
-  padding:5vh 5vw;
+  height:100vh;
+  width:100%;
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
+  padding:4vh 5vw 3vh;
 }
-.logo{
-  letter-spacing:8px;
-  font-size:2.2vw;
+
+/* LOGO */
+.brand{
+  margin-bottom:5vh;
 }
-.logo small{
-  display:block;
-  font-size:1.2vw;
+
+.brand-main{
+  font-size:1.5vw;
+  font-weight:600;
+  letter-spacing:.45em;
+}
+
+.brand-main:before{
+  content:"▲";
+  font-size:.9em;
+  margin-right:15px;
+}
+
+.brand-sub{
   margin-top:10px;
-  letter-spacing:6px;
+  font-size:.75vw;
+  letter-spacing:.45em;
 }
-h1{
-  font-family:Georgia,serif;
-  font-size:6vw;
-  margin:3vh 0 0;
+
+/* BIENVENUE */
+.hero{
+  max-width:700px;
 }
-h2{
-  color:#d6a36d;
-  font-family:Georgia,serif;
-  font-size:3.5vw;
+
+.hero h1{
   margin:0;
+  font-family:Georgia,serif;
+  font-size:4vw;
+  line-height:.95;
+  text-shadow:0 3px 15px rgba(0,0,0,.45);
 }
-.intro{
-  font-size:1.7vw;
+
+.hero h1 span{
+  display:block;
+  margin-top:10px;
+  font-size:2.3vw;
+}
+
+.hero p{
+  margin-top:25px;
+  font-size:1.15vw;
   line-height:1.5;
-  margin-top:2vh;
+  text-shadow:0 2px 8px rgba(0,0,0,.8);
 }
+
+/* MENU */
 .menu{
+  margin-top:auto;
   display:grid;
   grid-template-columns:repeat(8,1fr);
-  gap:10px;
-  margin-top:4vh;
+  gap:1vw;
 }
+
 .card{
-  min-height:150px;
-  background:rgba(15,15,15,.75);
-  border:1px solid rgba(255,255,255,.25);
-  border-radius:12px;
+  height:18vh;
+  min-height:125px;
+
+  background:rgba(13,23,28,.64);
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:18px;
+
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
+
   text-align:center;
-  padding:12px;
+  color:white;
+  text-decoration:none;
+
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+
+  transition:.25s;
 }
+
+.card:hover,
 .card:focus{
-  outline:4px solid #d6a36d;
-  background:rgba(55,45,35,.9);
+  background:rgba(255,255,255,.18);
+  transform:translateY(-4px);
+  outline:none;
 }
-.icon{font-size:3vw}
-.name{
-  font-size:1.25vw;
-  margin-top:12px;
+
+.icon{
+  width:38px;
+  height:38px;
+  margin-bottom:16px;
+  stroke:white;
+  stroke-width:1.6;
+  fill:none;
 }
-footer{
+
+.card span{
+  font-size:.9vw;
+}
+
+/* BAS DE PAGE */
+.footer{
   margin-top:3vh;
-  letter-spacing:4px;
-  color:#ddd;
+  font-size:1.25vw;
+  letter-spacing:.45em;
+  font-weight:300;
+}
+
+.sep{
+  opacity:.6;
+  margin:0 18px;
+}
+
+/* TABLETTE / MOBILE */
+@media(max-width:900px){
+
+  body{
+    overflow:auto;
+  }
+
+  .page{
+    min-height:100vh;
+    height:auto;
+  }
+
+  .brand-main{
+    font-size:18px;
+  }
+
+  .brand-sub{
+    font-size:10px;
+  }
+
+  .hero h1{
+    font-size:45px;
+  }
+
+  .hero h1 span{
+    font-size:28px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .menu{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .card span{
+    font-size:13px;
+  }
+
+  .footer{
+    font-size:13px;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <div class="page">
 
-<div>
-  <div class="logo">
-    ⛰ L'ALPE DES CHAUX
-    <small>GRYON</small>
+  <div class="brand">
+    <div class="brand-main">L'ALPE DES CHAUX</div>
+    <div class="brand-sub">GRYON</div>
   </div>
 
-  <h1>Bienvenue</h1>
-  <h2>à l'Alpe des Chaux</h2>
+  <div class="hero">
+    <h1>
+      Bienvenue
+      <span>à l'Alpe des Chaux</span>
+    </h1>
 
-  <div class="intro">
-    Nous vous souhaitons un excellent séjour à Gryon<br>
-    et de merveilleux moments en montagne !
+    <p>
+      Nous vous souhaitons un excellent séjour à Gryon<br>
+      et de merveilleux moments en montagne !
+    </p>
   </div>
+
+  <div class="menu">
+
+    <a class="card" href="#">
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M3 11L12 3l9 8"/>
+        <path d="M5 10v10h14V10"/>
+        <path d="M9 20v-6h6v6"/>
+      </svg>
+      <span>Le logement</span>
+    </a>
+
+    <a class="card" href="#">
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M5 12.5a10 10 0 0114 0"/>
+        <path d="M8 15.5a6 6 0 018 0"/>
+        <path d="M11 18.5a2 2 0 012 0"/>
+        <circle cx="12" cy="21" r=".7" fill="white"/>
+      </svg>
+      <span>Wi-Fi</span>
+    </a>
+
+    <a class="card" href="#">
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M12 22c4 0 7-3 7-7 0-5-4-8-6-12 0 4-4 5-4 9-1-1-2-2-2-4-2 2-3 5-3 7 0 4 4 7 8 7z"/>
+        <path d="M12 21c-2 0-3-1-3-3 0-2 2-3 3-5 0 2 3 3 3 5 0 2-1 3-3 3z"/>
+      </svg>
+      <span>Cheminée</span>
+    </a>
+
+    <a class="card" href="#">
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M8 6h8"/>
+        <path d="M9 6l1-2h4l1 2"/>
+        <path d="M6 7l1 14h10l1-14"/>
+        <path d="M10 10v8M14 10v8"/>
+      </svg>
+      <span>Déchets</span>
+    </a>
+
+    <a class="card" href="#">
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M3 14l2-6h14l2 6v5h-2v2h-2v-2H7v2H5v-2H3z"/>
+        <circle cx="7" cy="15" r="1"/>
+        <circle cx="17" cy="15" r="1"/>
+      </svg>
+      <span>Parking</span>
+    </a>
+
+    <a class="card" href="#">
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M3 20L9 8l3 5 2-3 7 10z"/>
+        <path d="M7 20l5-7"/>
+      </svg>
+      <span>Activités</span>
+    </a>
+
+    <a class="card" href="#">
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M6 3v8"/>
+        <path d="M3 3v5c0 2 1 3 3 3s3-1 3-3V3"/>
+        <path d="M6 11v10"/>
+        <path d="M16 3v18"/>
+        <path d="M16 3c3 2 4 5 4 8h-4"/>
+      </svg>
+      <span>Restaurants</span>
+    </a>
+
+    <a class="card" href="#">
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M4 21h10V3H4z"/>
+        <path d="M14 12h7"/>
+        <path d="M18 8l4 4-4 4"/>
+      </svg>
+      <span>Départ</span>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    NATURE <span class="sep">|</span>
+    DÉTENTE <span class="sep">|</span>
+    GRAND AIR
+  </div>
+
 </div>
 
-<div class="menu">
-
-<div class="card" tabindex="0">
-<div class="icon">🏠</div>
-<div class="name">Le logement</div>
-</div>
-
-<div class="card" tabindex="0">
-<div class="icon">📶</div>
-<div class="name">Wi-Fi</div>
-</div>
-
-<div class="card" tabindex="0">
-<div class="icon">🔥</div>
-<div class="name">Cheminée</div>
-</div>
-
-<div class="card" tabindex="0">
-<div class="icon">♻️</div>
-<div class="name">Déchets</div>
-</div>
-
-<div class="card" tabindex="0">
-<div class="icon">🚗</div>
-<div class="name">Parking</div>
-</div>
-
-<div class="card" tabindex="0">
-<div class="icon">🏔️</div>
-<div class="name">Activités</div>
-</div>
-
-<div class="card" tabindex="0">
-<div class="icon">🍴</div>
-<div class="name">Restaurants</div>
-</div>
-
-<div class="card" tabindex="0">
-<div class="icon">🚪</div>
-<div class="name">Départ</div>
-</div>
-
-</div>
-
-<footer>
-NATURE &nbsp; | &nbsp; DÉTENTE &nbsp; | &nbsp; GRAND AIR
-</footer>
-
-</div>
 </body>
 </html>
