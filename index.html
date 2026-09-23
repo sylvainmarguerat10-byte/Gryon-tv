@@ -33,8 +33,9 @@ body{
 }
 .languages .bar{opacity:.55}
 .brand{margin-bottom:5vh}
-.brand-main{font-size:1.5vw;font-weight:600;letter-spacing:.45em}
-.brand-main:before{content:"▲";font-size:.9em;margin-right:15px}
+.brand-main{font-size:1.5vw;font-weight:600;letter-spacing:.45em;display:flex;align-items:center}
+.brand-main:before{content:none}
+.brand-mountains{width:31px;height:20px;margin-right:15px;flex:0 0 auto;stroke:#fff;stroke-width:1.05;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .brand-sub{margin-top:10px;font-size:.75vw;letter-spacing:.45em}
 .hero{max-width:760px}
 .hero h1{margin:0;font-family:Georgia,serif;font-size:4.5vw;line-height:.95;text-shadow:0 3px 15px rgba(0,0,0,.45)}
@@ -80,7 +81,7 @@ body{
   </div>
 
   <div class="brand">
-    <div class="brand-main">L'ALPE DES CHAUX</div>
+    <div class="brand-main"><svg class="brand-mountains" viewBox="0 0 36 22" aria-hidden="true"><path d="M1.5 19L10 8.5L15.5 15.2"/><path d="M8.5 19L19 3L28 16"/><path d="M20.5 19L27 10.5L34.5 19"/></svg><span>L'ALPE DES CHAUX</span></div>
     <div class="brand-sub">GRYON</div>
   </div>
 
