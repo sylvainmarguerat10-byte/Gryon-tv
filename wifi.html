@@ -15,15 +15,42 @@ h1{font-family:Georgia,serif;font-size:4vw;margin:0 0 4vh}
 .qr{background:rgba(255,255,255,.95);padding:22px;border-radius:20px;color:#172127;text-align:center}
 .qr img{width:230px;height:230px;display:block}.qr div{margin-top:12px;font-weight:600}
 .back{align-self:flex-start;color:#fff;text-decoration:none;padding:12px 20px;border:1px solid rgba(255,255,255,.7);border-radius:12px;background:rgba(13,23,28,.58);font-size:1.05vw}
+.back:focus{outline:3px solid #fff;outline-offset:3px;background:rgba(255,255,255,.25)}
 @media(max-width:900px){body{overflow:auto}.page{height:auto;min-height:100vh}.brand{font-size:17px}.sub{font-size:10px}.content{flex-direction:column;padding:35px 0;gap:28px;text-align:center}h1{font-size:46px}.label{font-size:13px}.value{font-size:24px}.hint{font-size:14px}.back{font-size:14px}.qr img{width:210px;height:210px}}
 </style></head>
 <body><div class="page">
 <div><div class="brand">L'ALPE DES CHAUX</div><div class="sub">GRYON</div></div>
 <div class="content"><div>
 <h1>Wi-Fi</h1>
-<div class="label">NOM DU RÉSEAU</div><div class="value">Marguerat</div>
-<div class="label">MOT DE PASSE</div><div class="value">kiara2011.</div>
-<div class="hint">Scannez le QR code avec votre téléphone pour vous connecter directement au Wi-Fi.</div>
-</div><div class="qr"><img src="wifi-qr.png" alt="QR code Wi-Fi"><div>Scanner pour se connecter</div></div></div>
-<a class="back" href="index.html">← Retour à l'accueil</a>
-</div></body></html>
+<div class="label" id="network-label">NOM DU RÉSEAU</div><div class="value">Marguerat</div>
+<div class="label" id="password-label">MOT DE PASSE</div><div class="value">kiara2011.</div>
+<div class="hint" id="hint">Scannez le QR code avec votre téléphone pour vous connecter directement au Wi-Fi.</div>
+</div><div class="qr"><img src="wifi-qr.png" alt="QR code Wi-Fi"><div id="scan">Scanner pour se connecter</div></div></div>
+<a class="back" id="back" href="index.html">← Retour à l'accueil</a>
+</div>
+<script>
+const tr={
+ fr:{network:"NOM DU RÉSEAU",password:"MOT DE PASSE",hint:"Scannez le QR code avec votre téléphone pour vous connecter directement au Wi-Fi.",scan:"Scanner pour se connecter",back:"← Retour à l'accueil"},
+ en:{network:"NETWORK NAME",password:"PASSWORD",hint:"Scan the QR code with your phone to connect directly to Wi-Fi.",scan:"Scan to connect",back:"← Back to home"},
+ de:{network:"NETZWERKNAME",password:"PASSWORT",hint:"Scannen Sie den QR-Code mit Ihrem Smartphone, um sich direkt mit dem WLAN zu verbinden.",scan:"Scannen zum Verbinden",back:"← Zurück zur Startseite"}
+};
+let lang=localStorage.getItem("gryontv-language")||"fr";
+if(!tr[lang]) lang="fr";
+document.documentElement.lang=lang;
+document.getElementById("network-label").textContent=tr[lang].network;
+document.getElementById("password-label").textContent=tr[lang].password;
+document.getElementById("hint").textContent=tr[lang].hint;
+document.getElementById("scan").textContent=tr[lang].scan;
+document.getElementById("back").textContent=tr[lang].back;
+
+/* Télécommande : une flèche sélectionne Retour, OK l'ouvre */
+document.addEventListener("keydown",e=>{
+ const code=e.keyCode||e.which;
+ if(["ArrowLeft","ArrowRight","ArrowUp","ArrowDown"].includes(e.key)||[19,20,21,22].includes(code)){
+   e.preventDefault(); document.getElementById("back").focus();
+ } else if((e.key==="Enter"||code===23||code===66) && document.activeElement===document.getElementById("back")){
+   e.preventDefault(); document.getElementById("back").click();
+ }
+});
+</script>
+</body></html>
