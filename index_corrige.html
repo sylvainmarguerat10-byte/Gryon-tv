@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Alpe des Chaux - Gryon</title>
+
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%}
+body{
+  font-family:Arial,Helvetica,sans-serif;color:white;overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(10,18,24,.58) 0%,rgba(10,18,24,.30) 45%,rgba(10,18,24,.10) 100%),
+    url("IMG_20260328_061418.jpg");
+  background-size:cover;background-position:center center;background-repeat:no-repeat;
+}
+.page{height:100vh;width:100%;display:flex;flex-direction:column;padding:4vh 5vw 4vh}
+.languages{
+  position:absolute;top:4vh;right:5vw;display:flex;align-items:center;gap:8px;
+  font-size:1.05vw;letter-spacing:.12em;text-shadow:0 2px 8px rgba(0,0,0,.65)
+}
+.languages button{
+  border:0;background:transparent;color:rgba(255,255,255,.68);
+  font:inherit;padding:6px 7px;cursor:pointer
+}
+.languages button.active{color:#fff;border-bottom:2px solid #fff}
+.languages .bar{opacity:.55}
+.brand{margin-bottom:5vh}
+.brand-main{font-size:1.5vw;font-weight:600;letter-spacing:.45em}
+.brand-main:before{content:"▲";font-size:.9em;margin-right:15px}
+.brand-sub{margin-top:10px;font-size:.75vw;letter-spacing:.45em}
+.hero{max-width:760px}
+.hero h1{margin:0;font-family:Georgia,serif;font-size:4.5vw;line-height:.95;text-shadow:0 3px 15px rgba(0,0,0,.45)}
+.hero h1 span{display:block;margin-top:10px;font-size:2.6vw}
+.hero p{margin-top:25px;font-size:1.3vw;line-height:1.5;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+.menu{margin-top:auto;display:grid;grid-template-columns:repeat(8,1fr);gap:1vw}
+.card{
+  height:19vh;min-height:125px;background:rgba(13,23,28,.64);
+  border:1px solid rgba(255,255,255,.55);border-radius:18px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;color:white;text-decoration:none;backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);transition:.25s
+}
+.card:hover,.card:focus{background:rgba(255,255,255,.28);transform:translateY(-4px);outline:3px solid #fff;outline-offset:3px}
+.icon{width:42px;height:42px;margin-bottom:16px;stroke:white;stroke-width:1.6;fill:none}
+.card span{font-size:1vw}
+.footer{margin-top:2vh;font-size:1.25vw;letter-spacing:.45em;font-weight:300}
+.sep{opacity:.6;margin:0 18px}
+
+@media(max-width:900px){
+  body{overflow:auto}
+  .page{min-height:100vh;height:auto}
+  .languages{top:3vh;right:4vw;font-size:12px;gap:3px}
+  .brand-main{font-size:18px}
+  .brand-sub{font-size:10px}
+  .hero h1{font-size:45px}
+  .hero h1 span{font-size:28px}
+  .hero p{font-size:15px}
+  .menu{grid-template-columns:repeat(4,1fr)}
+  .card span{font-size:13px}
+  .footer{font-size:13px}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <div class="languages" aria-label="Langue">
+    <button type="button" class="active" data-lang="fr">FR</button><span class="bar">|</span>
+    <button type="button" data-lang="en">EN</button><span class="bar">|</span>
+    <button type="button" data-lang="de">DE</button>
+  </div>
+
+  <div class="brand">
+    <div class="brand-main">L'ALPE DES CHAUX</div>
+    <div class="brand-sub">GRYON</div>
+  </div>
+
+  <div class="hero">
+    <h1><span id="welcome-main" style="display:block;margin-top:0;font-size:1em">Bienvenue</span>
+      <span id="welcome-place">à l'Alpe des Chaux</span>
+    </h1>
+    <p id="welcome-text">Nous vous souhaitons un excellent séjour<br>et de merveilleux moments en montagne !</p>
+  </div>
+
+  <div class="menu">
+    <a class="card" href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M3 11L12 3l9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg><span data-i18n="housing">Le logement</span></a>
+    <a class="card" href="wifi.html"><svg class="icon" viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0114 0"/><path d="M8 15.5a6 6 0 018 0"/><path d="M11 18.5a2 2 0 012 0"/><circle cx="12" cy="21" r=".7" fill="white"/></svg><span data-i18n="wifi">Wi-Fi</span></a>
+    <a class="card" href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22c4 0 7-3 7-7 0-5-4-8-6-12 0 4-4 5-4 9-1-1-2-2-2-4-2 2-3 5-3 7 0 4 4 7 8 7z"/><path d="M12 21c-2 0-3-1-3-3 0-2 2-3 3-5 0 2 3 3 3 5 0 2-1 3-3 3z"/></svg><span data-i18n="fireplace">Cheminée</span></a>
+    <a class="card" href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M8 6h8"/><path d="M9 6l1-2h4l1 2"/><path d="M6 7l1 14h10l1-14"/><path d="M10 10v8M14 10v8"/></svg><span data-i18n="waste">Déchets</span></a>
+    <a class="card" href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M3 14l2-6h14l2 6v5h-2v2h-2v-2H7v2H5v-2H3z"/><circle cx="7" cy="15" r="1"/><circle cx="17" cy="15" r="1"/></svg><span data-i18n="parking">Parking</span></a>
+    <a class="card" href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M3 20L9 8l3 5 2-3 7 10z"/><path d="M7 20l5-7"/></svg><span data-i18n="activities">Activités</span></a>
+    <a class="card" href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3v8"/><path d="M3 3v5c0 2 1 3 3 3s3-1 3-3V3"/><path d="M6 11v10"/><path d="M16 3v18"/><path d="M16 3c3 2 4 5 4 8h-4"/></svg><span data-i18n="restaurants">Restaurants</span></a>
+    <a class="card" href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M4 21h10V3H4z"/><path d="M14 12h7"/><path d="M18 8l4 4-4 4"/></svg><span data-i18n="departure">Départ</span></a>
+  </div>
+
+  <div class="footer">NATURE <span class="sep">|</span>DÉTENTE <span class="sep">|</span>GRAND AIR</div>
+</div>
+
+<script>
+const translations={
+ fr:{main:"Bienvenue",place:"à l'Alpe des Chaux",text:"Nous vous souhaitons un excellent séjour<br>et de merveilleux moments en montagne !",housing:"Le logement",wifi:"Wi-Fi",fireplace:"Cheminée",waste:"Déchets",parking:"Parking",activities:"Activités",restaurants:"Restaurants",departure:"Départ"},
+ en:{main:"Welcome",place:"to L'Alpe des Chaux",text:"We wish you a wonderful stay<br>and unforgettable moments in the mountains!",housing:"The apartment",wifi:"Wi-Fi",fireplace:"Fireplace",waste:"Waste",parking:"Parking",activities:"Activities",restaurants:"Restaurants",departure:"Departure"},
+ de:{main:"Willkommen",place:"in L'Alpe des Chaux",text:"Wir wünschen Ihnen einen schönen Aufenthalt<br>und unvergessliche Momente in den Bergen!",housing:"Die Wohnung",wifi:"WLAN",fireplace:"Kamin",waste:"Abfall",parking:"Parkplatz",activities:"Aktivitäten",restaurants:"Restaurants",departure:"Abreise"}
+};
+function setLanguage(lang){
+ const t=translations[lang];
+ document.documentElement.lang=lang;
+ document.getElementById("welcome-main").textContent=t.main;
+ document.getElementById("welcome-place").textContent=t.place;
+ document.getElementById("welcome-text").innerHTML=t.text;
+ document.querySelectorAll("[data-i18n]").forEach(el=>el.textContent=t[el.dataset.i18n]);
+ document.querySelectorAll(".languages button").forEach(btn=>btn.classList.toggle("active",btn.dataset.lang===lang));
+ localStorage.setItem("gryontv-language",lang);
+}
+document.querySelectorAll(".languages button").forEach(btn=>btn.addEventListener("click",()=>setLanguage(btn.dataset.lang)));
+
+setLanguage(localStorage.getItem("gryontv-language")||"fr");
+
+
+/* Navigation TV / télécommande */
+const tvCards = Array.from(document.querySelectorAll(".menu .card"));
+const tvLangs = Array.from(document.querySelectorAll(".langs button, .lang button, [data-lang]"))
+  .filter((el, i, arr) => arr.indexOf(el) === i);
+
+let cardIndex = 0;
+let langIndex = Math.max(0, tvLangs.findIndex(el =>
+  el.classList.contains("active") || el.getAttribute("data-lang") === (localStorage.getItem("gryontv-language") || "fr")
+));
+
+function focusCard(i){
+  if(!tvCards.length) return;
+  cardIndex = (i + tvCards.length) % tvCards.length;
+  tvCards[cardIndex].focus();
+}
+function focusLang(i){
+  if(!tvLangs.length) return;
+  langIndex = (i + tvLangs.length) % tvLangs.length;
+  tvLangs[langIndex].focus();
+}
+
+tvCards.forEach((card,i)=>{
+  card.setAttribute("tabindex","0");
+  card.addEventListener("focus",()=>{ cardIndex=i; });
+});
+tvLangs.forEach((btn,i)=>{
+  btn.setAttribute("tabindex","0");
+  btn.addEventListener("focus",()=>{ langIndex=i; });
+});
+
+document.addEventListener("keydown",(e)=>{
+  const key=e.key;
+  const code=e.keyCode || e.which;
+  const active=document.activeElement;
+  const onCard=active && active.classList.contains("card");
+  const onLang=active && tvLangs.includes(active);
+
+  if(key==="ArrowRight" || code===22){
+    e.preventDefault();
+    if(onLang) focusLang(langIndex+1);
+    else if(onCard) focusCard(cardIndex+1);
+    else focusCard(0);
+  }else if(key==="ArrowLeft" || code===21){
+    e.preventDefault();
+    if(onLang) focusLang(langIndex-1);
+    else if(onCard) focusCard(cardIndex-1);
+    else focusCard(tvCards.length-1);
+  }else if(key==="ArrowUp" || code===19){
+    if(onCard && tvLangs.length){
+      e.preventDefault();
+      const activeLang = tvLangs.findIndex(el => el.classList.contains("active"));
+      focusLang(activeLang >= 0 ? activeLang : 0);
+    }
+  }else if(key==="ArrowDown" || code===20){
+    if(onLang && tvCards.length){
+      e.preventDefault();
+      focusCard(cardIndex);
+    }
+  }else if(key==="Enter" || key===" " || code===23 || code===66){
+    if(onCard || onLang){
+      e.preventDefault();
+      active.click();
+    }
+  }
+});
+
+/* Au chargement TV, placer le curseur sur "Le logement" */
+setTimeout(()=>focusCard(0), 300);
+
+</script>
+</body>
+</html>
