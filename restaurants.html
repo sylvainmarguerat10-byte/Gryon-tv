@@ -1,27 +1,63 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Restaurants - L'Alpe des Chaux</title>
 <style>
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%}
-body{font-family:Arial,Helvetica,sans-serif;color:#fff;overflow:hidden;background:linear-gradient(90deg,rgba(10,18,24,.62),rgba(10,18,24,.20)),url("IMG_20260328_061418.jpg");background-size:cover;background-position:center}
-.page{height:100vh;padding:4vh 5vw;display:flex;flex-direction:column}.languages{position:absolute;top:4vh;right:5vw;display:flex;gap:8px;align-items:center;font-size:1.05vw}
-.languages button{border:0;background:transparent;color:rgba(255,255,255,.68);font:inherit;padding:6px 7px}.languages button.active{color:#fff;border-bottom:2px solid #fff}.languages button:focus,.action:focus,.back:focus{outline:3px solid #fff;outline-offset:3px}
-.bar{opacity:.55}.brand{margin-bottom:4vh}.brand-main{font-size:1.5vw;font-weight:600;letter-spacing:.45em;display:flex;align-items:center}.brand-logo{width:31px;height:20px;margin-right:15px;stroke:#fff;stroke-width:1.05;fill:none}.brand-sub{margin-top:10px;font-size:.75vw;letter-spacing:.45em}
-h1{font-family:Georgia,serif;font-size:3.7vw;margin:0 0 2vh}.restaurant{width:66%;background:rgba(13,23,28,.70);border:1px solid rgba(255,255,255,.55);border-radius:20px;padding:2.4vh 2vw;backdrop-filter:blur(5px)}
-.restaurant h2{font-family:Georgia,serif;font-size:2.3vw;margin:0 0 8px}.desc{font-size:1.15vw;line-height:1.45;margin:0 0 12px}.address{font-size:1vw;opacity:.86;margin-bottom:2vh}.actions{display:flex;gap:12px;flex-wrap:wrap}
-.action,.back{color:#fff;text-decoration:none;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.5);border-radius:11px;padding:11px 17px;font-size:1vw}.action:hover,.action:focus,.back:hover,.back:focus{background:rgba(255,255,255,.25)}
-.bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between}.footer{font-size:1.1vw;letter-spacing:.4em}.sep{opacity:.6;margin:0 14px}
-@media(max-width:900px){body{overflow:auto}.page{min-height:100vh;height:auto}.languages{font-size:12px}.brand-main{font-size:18px}.brand-sub{font-size:10px}h1{font-size:40px}.restaurant{width:100%}.restaurant h2{font-size:28px}.desc{font-size:15px}.address,.action,.back{font-size:13px}.bottom{margin-top:30px}.footer{font-size:10px}}
-</style></head><body><div class="page">
+body{font-family:Arial,Helvetica,sans-serif;color:#fff;overflow:hidden;background:linear-gradient(90deg,rgba(10,18,24,.68),rgba(10,18,24,.22)),url("IMG_20260328_061418.jpg");background-size:cover;background-position:center}
+.page{height:100vh;padding:4vh 5vw;display:flex;flex-direction:column}
+.languages{position:absolute;top:4vh;right:5vw;display:flex;gap:8px;align-items:center;font-size:1.05vw}
+.languages button{border:0;background:transparent;color:rgba(255,255,255,.68);font:inherit;padding:6px 7px}
+.languages button.active{color:#fff;border-bottom:2px solid #fff}
+.languages button:focus,.site:focus,.back:focus{outline:3px solid #fff;outline-offset:3px}
+.bar{opacity:.55}.brand{margin-bottom:2.2vh}
+.brand-main{font-size:1.5vw;font-weight:600;letter-spacing:.45em;display:flex;align-items:center}
+.brand-logo{width:31px;height:20px;margin-right:15px;stroke:#fff;stroke-width:1.05;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.brand-sub{margin-top:10px;font-size:.75vw;letter-spacing:.45em}
+h1{font-family:Georgia,serif;font-size:3.25vw;margin:0 0 1.8vh}
+.restaurant{display:grid;grid-template-columns:1.18fr 1fr;width:82%;max-height:55vh;background:rgba(13,23,28,.72);border:1px solid rgba(255,255,255,.55);border-radius:20px;overflow:hidden;backdrop-filter:blur(5px)}
+.photo{width:100%;height:100%;min-height:35vh;object-fit:cover}
+.info{padding:2.3vh 2vw;display:flex;flex-direction:column;justify-content:center}
+.info h2{font-family:Georgia,serif;font-size:2.35vw;margin:0 0 .8vh}
+.desc{font-size:1.05vw;line-height:1.45;margin:0 0 1.6vh}
+.detail{font-size:1vw;line-height:1.65;margin:.2vh 0}
+.site{align-self:flex-start;margin-top:1.8vh;color:#fff;text-decoration:none;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.55);border-radius:11px;padding:11px 18px;font-size:1vw}
+.site:hover,.site:focus,.back:hover,.back:focus{background:rgba(255,255,255,.25)}
+.bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between}
+.back{color:#fff;text-decoration:none;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.5);border-radius:11px;padding:10px 16px;font-size:1vw}
+.footer{font-size:1.1vw;letter-spacing:.4em}.sep{opacity:.6;margin:0 14px}
+@media(max-width:900px){body{overflow:auto}.page{min-height:100vh;height:auto}.languages{font-size:12px}.brand-main{font-size:18px}.brand-sub{font-size:10px}h1{font-size:38px}.restaurant{width:100%;max-height:none;grid-template-columns:1fr}.photo{height:260px;min-height:0}.info h2{font-size:28px}.desc{font-size:15px}.detail,.site,.back{font-size:13px}.bottom{margin-top:30px}.footer{font-size:10px}}
+</style>
+</head>
+<body>
+<div class="page">
 <div class="languages"><button class="active" data-lang="fr">FR</button><span class="bar">|</span><button data-lang="en">EN</button><span class="bar">|</span><button data-lang="de">DE</button></div>
-<div class="brand"><div class="brand-main"><svg class="brand-logo" viewBox="0 0 36 22"><path d="M1.5 19L10 8.5L15.5 15.2"/><path d="M8.5 19L19 3L28 16"/><path d="M20.5 19L27 10.5L34.5 19"/></svg><span>L'ALPE DES CHAUX</span></div><div class="brand-sub">GRYON</div></div>
-<h1 id="title">Restaurants</h1>
-<div class="restaurant"><h2>L'Ancolie</h2><p class="desc" id="desc">Cuisine de terroir bistronomique, avec une carte courte qui évolue au fil des saisons.</p><div class="address">Route de Solalex 68 · 1882 Gryon</div>
-<div class="actions"><a class="action" href="https://www.google.com/maps/search/?api=1&query=L%27Ancolie%2C%20Route%20de%20Solalex%2068%2C%201882%20Gryon" id="route">Itinéraire</a><a class="action" href="tel:+41244982233" id="call">Appeler</a><a class="action" href="https://www.lancoliegryon.com/" id="site">Site web</a></div></div>
+<div class="brand"><div class="brand-main"><svg class="brand-logo" viewBox="0 0 36 22" aria-hidden="true"><path d="M1.5 19L10 8.5L15.5 15.2"/><path d="M8.5 19L19 3L28 16"/><path d="M20.5 19L27 10.5L34.5 19"/></svg><span>L'ALPE DES CHAUX</span></div><div class="brand-sub">GRYON</div></div>
+<h1>Restaurants</h1>
+<div class="restaurant">
+<img class="photo" src="lancolie.jpg" alt="L'Ancolie">
+<div class="info">
+<h2>L'Ancolie</h2>
+<p class="desc" id="desc">Cuisine de terroir bistronomique, avec une carte courte qui évolue au fil des saisons.</p>
+<p class="detail">📍 Route de Solalex 68 · 1882 Gryon</p>
+<p class="detail" id="time">🚗 Environ 5 min depuis l'appartement</p>
+<a class="site" href="https://www.lancoliegryon.com/" id="site">Voir le site web</a>
+</div></div>
 <div class="bottom"><a class="back" href="index.html" id="back">← Retour à l'accueil</a><div class="footer">NATURE <span class="sep">|</span>DÉTENTE <span class="sep">|</span>GRAND AIR</div></div>
-</div><script>
-const T={fr:{desc:"Cuisine de terroir bistronomique, avec une carte courte qui évolue au fil des saisons.",route:"Itinéraire",call:"Appeler",site:"Site web",back:"← Retour à l'accueil"},en:{desc:"Seasonal bistronomic cuisine featuring local produce and a concise, regularly changing menu.",route:"Directions",call:"Call",site:"Website",back:"← Back to home"},de:{desc:"Saisonale, regionale Bistroküche mit einer kleinen, regelmäßig wechselnden Karte.",route:"Route",call:"Anrufen",site:"Website",back:"← Zurück zur Startseite"}};
-function setLang(l){let t=T[l]||T.fr;document.documentElement.lang=l;["desc","route","call","site","back"].forEach(x=>document.getElementById(x).textContent=t[x]);document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===l));localStorage.setItem("gryontv-language",l)}
+</div>
+<script>
+const T={
+fr:{desc:"Cuisine de terroir bistronomique, avec une carte courte qui évolue au fil des saisons.",time:"🚗 Environ 5 min depuis l'appartement",site:"Voir le site web",back:"← Retour à l'accueil"},
+en:{desc:"Seasonal bistronomic cuisine featuring local produce and a concise, regularly changing menu.",time:"🚗 About 5 min from the apartment",site:"Visit website",back:"← Back to home"},
+de:{desc:"Saisonale, regionale Bistroküche mit einer kleinen, regelmäßig wechselnden Karte.",time:"🚗 Ca. 5 Min. von der Wohnung entfernt",site:"Website ansehen",back:"← Zurück zur Startseite"}
+};
+function setLang(l){let t=T[l]||T.fr;document.documentElement.lang=l;["desc","time","site","back"].forEach(x=>document.getElementById(x).textContent=t[x]);document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===l));localStorage.setItem("gryontv-language",l)}
 document.querySelectorAll("[data-lang]").forEach(b=>b.onclick=()=>setLang(b.dataset.lang));setLang(localStorage.getItem("gryontv-language")||"fr");
-const f=[...document.querySelectorAll("[data-lang],.action,.back")];let i=0;f.forEach((e,n)=>e.addEventListener("focus",()=>i=n));document.addEventListener("keydown",e=>{let k=e.key,c=e.keyCode||e.which;if(k==="ArrowRight"||c===22){e.preventDefault();i=(i+1)%f.length;f[i].focus()}else if(k==="ArrowLeft"||c===21){e.preventDefault();i=(i-1+f.length)%f.length;f[i].focus()}else if(k==="Enter"||k===" "||c===23||c===66){if(f.includes(document.activeElement)){e.preventDefault();document.activeElement.click()}}});setTimeout(()=>document.querySelector(".action").focus(),300);
-</script></body></html>
+const f=[...document.querySelectorAll("[data-lang],.site,.back")];let i=0;
+f.forEach((e,n)=>e.addEventListener("focus",()=>i=n));
+document.addEventListener("keydown",e=>{let k=e.key,c=e.keyCode||e.which;if(k==="ArrowRight"||c===22){e.preventDefault();i=(i+1)%f.length;f[i].focus()}else if(k==="ArrowLeft"||c===21){e.preventDefault();i=(i-1+f.length)%f.length;f[i].focus()}else if(k==="Enter"||k===" "||c===23||c===66){if(f.includes(document.activeElement)){e.preventDefault();document.activeElement.click()}}});
+setTimeout(()=>document.querySelector(".site").focus(),300);
+</script>
+</body></html>
