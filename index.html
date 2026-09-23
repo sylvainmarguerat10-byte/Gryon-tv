@@ -119,46 +119,71 @@ document.querySelectorAll(".languages button").forEach(btn=>btn.addEventListener
 
 setLanguage(localStorage.getItem("gryontv-language")||"fr");
 
-/* Navigation TV / télécommande */
-const tvCards=Array.from(document.querySelectorAll(".menu .card"));
-let tvIndex=0;
 
-function focusCard(index){
+/* Navigation TV / télécommande */
+const tvCards = Array.from(document.querySelectorAll(".menu .card"));
+const tvLangs = Array.from(document.querySelectorAll(".langs button, .lang button, [data-lang]"))
+  .filter((el, i, arr) => arr.indexOf(el) === i);
+
+let cardIndex = 0;
+let langIndex = Math.max(0, tvLangs.findIndex(el =>
+  el.classList.contains("active") || el.getAttribute("data-lang") === (localStorage.getItem("gryontv-language") || "fr")
+));
+
+function focusCard(i){
   if(!tvCards.length) return;
-  tvIndex=(index+tvCards.length)%tvCards.length;
-  tvCards[tvIndex].focus();
+  cardIndex = (i + tvCards.length) % tvCards.length;
+  tvCards[cardIndex].focus();
+}
+function focusLang(i){
+  if(!tvLangs.length) return;
+  langIndex = (i + tvLangs.length) % tvLangs.length;
+  tvLangs[langIndex].focus();
 }
 
-tvCards.forEach((card,index)=>{
+tvCards.forEach((card,i)=>{
   card.setAttribute("tabindex","0");
-  card.addEventListener("focus",()=>{tvIndex=index;});
+  card.addEventListener("focus",()=>{ cardIndex=i; });
+});
+tvLangs.forEach((btn,i)=>{
+  btn.setAttribute("tabindex","0");
+  btn.addEventListener("focus",()=>{ langIndex=i; });
 });
 
 document.addEventListener("keydown",(e)=>{
   const key=e.key;
   const code=e.keyCode || e.which;
+  const active=document.activeElement;
+  const onCard=active && active.classList.contains("card");
+  const onLang=active && tvLangs.includes(active);
 
   if(key==="ArrowRight" || code===22){
     e.preventDefault();
-    focusCard(tvIndex+1);
+    if(onLang) focusLang(langIndex+1);
+    else if(onCard) focusCard(cardIndex+1);
+    else focusCard(0);
   }else if(key==="ArrowLeft" || code===21){
     e.preventDefault();
-    focusCard(tvIndex-1);
-  }else if(key==="ArrowDown" || code===20){
-    e.preventDefault();
-    focusCard(tvIndex+1);
+    if(onLang) focusLang(langIndex-1);
+    else if(onCard) focusCard(cardIndex-1);
+    else focusCard(tvCards.length-1);
   }else if(key==="ArrowUp" || code===19){
-    e.preventDefault();
-    focusCard(tvIndex-1);
-  }else if(key==="Enter" || key===" " || code===23 || code===66){
-    if(document.activeElement && document.activeElement.classList.contains("card")){
+    if(onCard && tvLangs.length){
       e.preventDefault();
-      document.activeElement.click();
+      focusLang(langIndex);
+    }
+  }else if(key==="ArrowDown" || code===20){
+    if(onLang && tvCards.length){
+      e.preventDefault();
+      focusCard(cardIndex);
+    }
+  }else if(key==="Enter" || key===" " || code===23 || code===66){
+    if(onCard || onLang){
+      e.preventDefault();
+      active.click();
     }
   }
 });
-
-window.addEventListener("load",()=>focusCard(0));
 
 </script>
 </body>
