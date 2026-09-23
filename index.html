@@ -170,7 +170,8 @@ document.addEventListener("keydown",(e)=>{
   }else if(key==="ArrowUp" || code===19){
     if(onCard && tvLangs.length){
       e.preventDefault();
-      focusLang(langIndex);
+      const activeLang = tvLangs.findIndex(el => el.classList.contains("active"));
+      focusLang(activeLang >= 0 ? activeLang : 0);
     }
   }else if(key==="ArrowDown" || code===20){
     if(onLang && tvCards.length){
@@ -184,6 +185,9 @@ document.addEventListener("keydown",(e)=>{
     }
   }
 });
+
+/* Au chargement TV, placer le curseur sur "Le logement" */
+setTimeout(()=>focusCard(0), 300);
 
 </script>
 </body>
