@@ -42,7 +42,7 @@ body{
   text-align:center;color:white;text-decoration:none;backdrop-filter:blur(5px);
   -webkit-backdrop-filter:blur(5px);transition:.25s
 }
-.card:hover,.card:focus{background:rgba(255,255,255,.18);transform:translateY(-4px);outline:none}
+.card:hover,.card:focus{background:rgba(255,255,255,.28);transform:translateY(-4px);outline:3px solid #fff;outline-offset:3px}
 .icon{width:42px;height:42px;margin-bottom:16px;stroke:white;stroke-width:1.6;fill:none}
 .card span{font-size:1vw}
 .footer{margin-top:2vh;font-size:1.25vw;letter-spacing:.45em;font-weight:300}
@@ -116,7 +116,50 @@ function setLanguage(lang){
  localStorage.setItem("gryontv-language",lang);
 }
 document.querySelectorAll(".languages button").forEach(btn=>btn.addEventListener("click",()=>setLanguage(btn.dataset.lang)));
+
 setLanguage(localStorage.getItem("gryontv-language")||"fr");
+
+/* Navigation TV / télécommande */
+const tvCards=Array.from(document.querySelectorAll(".menu .card"));
+let tvIndex=0;
+
+function focusCard(index){
+  if(!tvCards.length) return;
+  tvIndex=(index+tvCards.length)%tvCards.length;
+  tvCards[tvIndex].focus();
+}
+
+tvCards.forEach((card,index)=>{
+  card.setAttribute("tabindex","0");
+  card.addEventListener("focus",()=>{tvIndex=index;});
+});
+
+document.addEventListener("keydown",(e)=>{
+  const key=e.key;
+  const code=e.keyCode || e.which;
+
+  if(key==="ArrowRight" || code===22){
+    e.preventDefault();
+    focusCard(tvIndex+1);
+  }else if(key==="ArrowLeft" || code===21){
+    e.preventDefault();
+    focusCard(tvIndex-1);
+  }else if(key==="ArrowDown" || code===20){
+    e.preventDefault();
+    focusCard(tvIndex+1);
+  }else if(key==="ArrowUp" || code===19){
+    e.preventDefault();
+    focusCard(tvIndex-1);
+  }else if(key==="Enter" || key===" " || code===23 || code===66){
+    if(document.activeElement && document.activeElement.classList.contains("card")){
+      e.preventDefault();
+      document.activeElement.click();
+    }
+  }
+});
+
+window.addEventListener("load",()=>focusCard(0));
+
 </script>
 </body>
 </html>
