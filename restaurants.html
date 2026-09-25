@@ -49,39 +49,63 @@ t:["🚗 Environ 5 min depuis l'appartement","Environ 15 min à pied depuis l'ap
 w:["❄️ Hiver : garer la voiture au parking de Cergnement, puis environ 1 h à pied jusqu’à Solalex","❄️ Hiver : garer la voiture au parking de Cergnement, puis environ 1 h à pied jusqu’à Solalex"]},
 en:{fav:"❤️ Our favourite",site:"Visit website",back:"← Back to home",
 d:["Seasonal bistronomic cuisine featuring local produce.","Seasonal cuisine and Swiss specialities in a cosy chalet around the large fireplace.","Varied cuisine, pizzas and takeaway dishes with a panoramic terrace.","Italian restaurant serving authentic specialities in a modern and welcoming setting.","Traditional Swiss cuisine in a mountain refuge in the Solalex valley.","Mountain cuisine in the spectacular setting of Solalex."],
-t:["🚗 About 5 min from the apartment","🚶 About 15 min walk from the apartment","🚶 About 5 min walk from the apartment","🚗 About 20 min by car from the apartment","☀️ Summer: 🚗 about 15 min by car","☀️ Summer: 🚗 about 15 min by car"],
-w:["❄️ Winter: park at Cergnement, then 🚶 about 1 h to Solalex","❄️ Winter: park at Cergnement, then 🚶 about 1 h to Solalex"]},
+t:["🚗 About 5 min from the apartment","About 15 min walk from the apartment","About 5 min walk from the apartment","🚗 About 20 min by car from the apartment","☀️ Summer: 🚗 about 15 min by car","☀️ Summer: 🚗 about 15 min by car"],
+w:["❄️ Winter: park at Cergnement, then about 1 h walk to Solalex","❄️ Winter: park at Cergnement, then about 1 h walk to Solalex"]},
 de:{fav:"❤️ Unser Favorit",site:"Website ansehen",back:"← Zurück zur Startseite",
 d:["Saisonale, regionale Bistroküche mit einer kleinen, wechselnden Karte.","Saisonale Küche und Schweizer Spezialitäten in einem gemütlichen Chalet mit Kamin.","Abwechslungsreiche Küche, Pizza und Take-away mit Panoramaterrasse.","Italienisches Restaurant mit authentischen Spezialitäten in modernem Ambiente.","Traditionelle Schweizer Küche in einem Berggasthaus im Solalex-Tal.","Bergküche in der spektakulären Umgebung von Solalex."],
-t:["🚗 Ca. 5 Min. von der Wohnung","🚶 Ca. 15 Gehminuten von der Wohnung","🚶 Ca. 5 Gehminuten von der Wohnung","🚗 Ca. 20 Min. mit dem Auto","☀️ Sommer: 🚗 ca. 15 Min. mit dem Auto","☀️ Sommer: 🚗 ca. 15 Min. mit dem Auto"],
-w:["❄️ Winter: Auto in Cergnement parkieren, dann 🚶 ca. 1 Std. bis Solalex","❄️ Winter: Auto in Cergnement parkieren, dann 🚶 ca. 1 Std. bis Solalex"]}};
-function setLang(l){let x=tr[l];fav.textContent=x.fav;for(let i=1;i<=6;i++){document.getElementById("d"+i).textContent=x.d[i-1];document.getElementById("t"+i).textContent=x.t[i-1]}w5.textContent=x.w[0];w6.textContent=x.w[1];["s1","s2","s3","s5"].forEach(id=>document.getElementById(id).textContent=x.site);back.textContent=x.back;
-["fr","en","de"].forEach(k=>document.getElementById(k).classList.toggle("active",k===l));localStorage.setItem("gryontv-language",l)}
-["fr","en","de"].forEach(l=>document.getElementById(l).onclick=()=>setLang(l));setLang(localStorage.getItem("gryontv-language")||"fr");
-let pg=0;function show(n){
-pg=Math.max(0,Math.min(1,n));
-track.style.transform=`translateX(-${pg*50}%)`;
-leftHint.style.display=pg===1?"block":"none";
-rightHint.style.display=pg===0?"block":"none";
-}%)`;dots.textContent=pg===0?"● ○":"○ ●"}prev.onclick=()=>show(pg-1);next.onclick=()=>show(pg+1);
+t:["🚗 Ca. 5 Min. von der Wohnung","Ca. 15 Gehminuten von der Wohnung","Ca. 5 Gehminuten von der Wohnung","🚗 Ca. 20 Min. mit dem Auto","☀️ Sommer: 🚗 ca. 15 Min. mit dem Auto","☀️ Sommer: 🚗 ca. 15 Min. mit dem Auto"],
+w:["❄️ Winter: Auto in Cergnement parkieren, dann ca. 1 Std. zu Fuss bis Solalex","❄️ Winter: Auto in Cergnement parkieren, dann ca. 1 Std. zu Fuss bis Solalex"]}};
+
+function setLang(l){
+ const x=tr[l];
+ document.getElementById("fav").textContent=x.fav;
+ for(let n=1;n<=6;n++){
+   document.getElementById("d"+n).textContent=x.d[n-1];
+   document.getElementById("t"+n).textContent=x.t[n-1];
+ }
+ document.getElementById("w5").textContent=x.w[0];
+ document.getElementById("w6").textContent=x.w[1];
+ ["s1","s2","s3","s5"].forEach(id=>document.getElementById(id).textContent=x.site);
+ document.getElementById("back").textContent=x.back;
+ ["fr","en","de"].forEach(k=>document.getElementById(k).classList.toggle("active",k===l));
+ localStorage.setItem("gryontv-language",l);
+}
+["fr","en","de"].forEach(l=>document.getElementById(l).onclick=()=>setLang(l));
+setLang(localStorage.getItem("gryontv-language")||"fr");
+
+let pg=0;
+function show(n){
+ pg=Math.max(0,Math.min(1,n));
+ document.getElementById("track").style.transform=`translateX(-${pg*50}%)`;
+ document.getElementById("leftHint").style.display=pg===1?"block":"none";
+ document.getElementById("rightHint").style.display=pg===0?"block":"none";
+}
+show(0);
+
+const page1Sites=[
+ document.getElementById("s1"),
+ document.getElementById("s2"),
+ document.getElementById("s3")
+];
+
 document.addEventListener("keydown",e=>{
  const a=document.activeElement;
  if(e.key==="ArrowRight"){
    if(pg===0){
-     if(a===s1)s2.focus();
-     else if(a===s2)s3.focus();
-     else if(a===s3){show(1);setTimeout(()=>{document.activeElement.blur()},460);}
-     else s1.focus();
+     const idx=page1Sites.indexOf(a);
+     if(idx===-1) page1Sites[0].focus();
+     else if(idx<2) page1Sites[idx+1].focus();
+     else { show(1); setTimeout(()=>document.activeElement.blur(),480); }
    }
    e.preventDefault();
- }
- if(e.key==="ArrowLeft"){
-   if(pg===0){
-     if(a===s3)s2.focus();
-     else if(a===s2)s1.focus();
-     else s1.focus();
-   }else{
-     show(0);setTimeout(()=>s3.focus(),460);
+ } else if(e.key==="ArrowLeft"){
+   if(pg===1){
+     show(0);
+     setTimeout(()=>page1Sites[2].focus(),480);
+   } else {
+     const idx=page1Sites.indexOf(a);
+     if(idx>0) page1Sites[idx-1].focus();
+     else page1Sites[0].focus();
    }
    e.preventDefault();
  }
