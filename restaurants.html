@@ -1,63 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Restaurants - L'Alpe des Chaux</title>
-<style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%}
-body{font-family:Arial,Helvetica,sans-serif;color:#fff;overflow:hidden;background:linear-gradient(90deg,rgba(10,18,24,.68),rgba(10,18,24,.22)),url("IMG_20260328_061418.jpg");background-size:cover;background-position:center}
-.page{height:100vh;padding:4vh 5vw;display:flex;flex-direction:column}
-.languages{position:absolute;top:4vh;right:5vw;display:flex;gap:8px;align-items:center;font-size:1.05vw}
-.languages button{border:0;background:transparent;color:rgba(255,255,255,.68);font:inherit;padding:6px 7px}
-.languages button.active{color:#fff;border-bottom:2px solid #fff}
-.languages button:focus,.site:focus,.back:focus{outline:3px solid #fff;outline-offset:3px}
-.bar{opacity:.55}.brand{margin-bottom:2.2vh}
-.brand-main{font-size:1.5vw;font-weight:600;letter-spacing:.45em;display:flex;align-items:center}
-.brand-logo{width:31px;height:20px;margin-right:15px;stroke:#fff;stroke-width:1.05;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.brand-sub{margin-top:10px;font-size:.75vw;letter-spacing:.45em}
-h1{font-family:Georgia,serif;font-size:3.25vw;margin:0 0 1.8vh}
-.restaurant{display:grid;grid-template-columns:1.18fr 1fr;width:82%;max-height:55vh;background:rgba(13,23,28,.72);border:1px solid rgba(255,255,255,.55);border-radius:20px;overflow:hidden;backdrop-filter:blur(5px)}
-.photo{width:100%;height:100%;min-height:35vh;object-fit:cover}
-.info{padding:2.3vh 2vw;display:flex;flex-direction:column;justify-content:center}
-.info h2{font-family:Georgia,serif;font-size:2.35vw;margin:0 0 .8vh}
-.desc{font-size:1.05vw;line-height:1.45;margin:0 0 1.6vh}
-.detail{font-size:1vw;line-height:1.65;margin:.2vh 0}
-.site{align-self:flex-start;margin-top:1.8vh;color:#fff;text-decoration:none;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.55);border-radius:11px;padding:11px 18px;font-size:1vw}
-.site:hover,.site:focus,.back:hover,.back:focus{background:rgba(255,255,255,.25)}
-.bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between}
-.back{color:#fff;text-decoration:none;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.5);border-radius:11px;padding:10px 16px;font-size:1vw}
-.footer{font-size:1.1vw;letter-spacing:.4em}.sep{opacity:.6;margin:0 14px}
-@media(max-width:900px){body{overflow:auto}.page{min-height:100vh;height:auto}.languages{font-size:12px}.brand-main{font-size:18px}.brand-sub{font-size:10px}h1{font-size:38px}.restaurant{width:100%;max-height:none;grid-template-columns:1fr}.photo{height:260px;min-height:0}.info h2{font-size:28px}.desc{font-size:15px}.detail,.site,.back{font-size:13px}.bottom{margin-top:30px}.footer{font-size:10px}}
-</style>
-</head>
-<body>
-<div class="page">
-<div class="languages"><button class="active" data-lang="fr">FR</button><span class="bar">|</span><button data-lang="en">EN</button><span class="bar">|</span><button data-lang="de">DE</button></div>
-<div class="brand"><div class="brand-main"><svg class="brand-logo" viewBox="0 0 36 22" aria-hidden="true"><path d="M1.5 19L10 8.5L15.5 15.2"/><path d="M8.5 19L19 3L28 16"/><path d="M20.5 19L27 10.5L34.5 19"/></svg><span>L'ALPE DES CHAUX</span></div><div class="brand-sub">GRYON</div></div>
-<h1>Restaurants</h1>
-<div class="restaurant">
-<img class="photo" src="lancolie.jpg" alt="L'Ancolie">
-<div class="info">
-<h2>L'Ancolie</h2>
-<p class="desc" id="desc">Cuisine de terroir bistronomique, avec une carte courte qui évolue au fil des saisons.</p>
-<p class="detail">📍 Route de Solalex 68 · 1882 Gryon</p>
-<p class="detail" id="time">🚗 Environ 5 min depuis l'appartement</p>
-<a class="site" href="https://www.lancoliegryon.com/" id="site">Voir le site web</a>
-</div></div>
-<div class="bottom"><a class="back" href="index.html" id="back">← Retour à l'accueil</a><div class="footer">NATURE <span class="sep">|</span>DÉTENTE <span class="sep">|</span>GRAND AIR</div></div>
-</div>
-<script>
-const T={
-fr:{desc:"Cuisine de terroir bistronomique, avec une carte courte qui évolue au fil des saisons.",time:"🚗 Environ 5 min depuis l'appartement",site:"Voir le site web",back:"← Retour à l'accueil"},
-en:{desc:"Seasonal bistronomic cuisine featuring local produce and a concise, regularly changing menu.",time:"🚗 About 5 min from the apartment",site:"Visit website",back:"← Back to home"},
-de:{desc:"Saisonale, regionale Bistroküche mit einer kleinen, regelmäßig wechselnden Karte.",time:"🚗 Ca. 5 Min. von der Wohnung entfernt",site:"Website ansehen",back:"← Zurück zur Startseite"}
-};
-function setLang(l){let t=T[l]||T.fr;document.documentElement.lang=l;["desc","time","site","back"].forEach(x=>document.getElementById(x).textContent=t[x]);document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===l));localStorage.setItem("gryontv-language",l)}
-document.querySelectorAll("[data-lang]").forEach(b=>b.onclick=()=>setLang(b.dataset.lang));setLang(localStorage.getItem("gryontv-language")||"fr");
-const f=[...document.querySelectorAll("[data-lang],.site,.back")];let i=0;
-f.forEach((e,n)=>e.addEventListener("focus",()=>i=n));
-document.addEventListener("keydown",e=>{let k=e.key,c=e.keyCode||e.which;if(k==="ArrowRight"||c===22){e.preventDefault();i=(i+1)%f.length;f[i].focus()}else if(k==="ArrowLeft"||c===21){e.preventDefault();i=(i-1+f.length)%f.length;f[i].focus()}else if(k==="Enter"||k===" "||c===23||c===66){if(f.includes(document.activeElement)){e.preventDefault();document.activeElement.click()}}});
-setTimeout(()=>document.querySelector(".site").focus(),300);
-</script>
-</body></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Restaurants - L'Alpe des Chaux</title><style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%}body{font-family:Arial;color:#fff;overflow:hidden;background:linear-gradient(90deg,#0a1218aa,#0a121838),url("IMG_20260328_061418.jpg") center/cover}.page{height:100vh;padding:3.5vh 5vw;display:flex;flex-direction:column}.langs{position:absolute;right:5vw;top:3.5vh}.langs button{background:none;border:0;color:#bbb;font-size:1vw;padding:7px}.langs .active{color:#fff;border-bottom:2px solid #fff}.brand{font-size:1.5vw;letter-spacing:.45em;display:flex;align-items:center}.mount{width:31px;height:20px;margin-right:15px;stroke:#fff;fill:none;stroke-width:1.05}.sub{font-size:.75vw;letter-spacing:.45em;margin-top:8px}h1{font:3vw Georgia;margin:1.5vh 0}.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.4vw;width:94%}.card{display:grid;grid-template-columns:1.05fr 1fr;background:#0d171cbd;border:1px solid #ffffff88;border-radius:18px;overflow:hidden;min-height:34vh}.photo{width:100%;height:100%;min-height:34vh;object-fit:cover}.info{padding:1.7vh 1.4vw;display:flex;flex-direction:column;justify-content:center}.info h2{font:1.75vw Georgia;margin:0 0 .7vh}.desc{font-size:.88vw;line-height:1.4;margin:0 0 1vh}.detail{font-size:.82vw;line-height:1.5;margin:.15vh 0}.site,.back{color:#fff;text-decoration:none;background:#ffffff1f;border:1px solid #ffffff88;border-radius:10px;padding:9px 13px;font-size:.82vw}.site{align-self:flex-start;margin-top:1.1vh}.site:focus,.back:focus,.langs button:focus{outline:3px solid #fff;outline-offset:3px}.bottom{margin-top:auto;display:flex;justify-content:space-between;align-items:center}.footer{font-size:1vw;letter-spacing:.4em}.back{font-size:.95vw}
+</style></head><body><div class="page"><div class="langs"><button class="active" data-l="fr">FR</button> | <button data-l="en">EN</button> | <button data-l="de">DE</button></div><div><div class="brand"><svg class="mount" viewBox="0 0 36 22"><path d="M1.5 19L10 8.5L15.5 15.2"/><path d="M8.5 19L19 3L28 16"/><path d="M20.5 19L27 10.5L34.5 19"/></svg>L'ALPE DES CHAUX</div><div class="sub">GRYON</div></div><h1>Restaurants</h1><div class="cards">
+<div class="card"><img class="photo" src="lancolie.jpg"><div class="info"><h2>L'Ancolie</h2><p class="desc" id="d1">Cuisine de terroir bistronomique, avec une carte courte qui évolue au fil des saisons.</p><p class="detail">📍 Route de Solalex 68 · 1882 Gryon</p><p class="detail" id="t1">🚗 Environ 5 min depuis l'appartement</p><a class="site" href="https://www.lancoliegryon.com/" id="s1">Voir le site web</a></div></div>
+<div class="card"><img class="photo" src="refuge-frience.webp"><div class="info"><h2>Refuge de Frience</h2><p class="desc" id="d2">Cuisine de saison et spécialités suisses dans un chalet chaleureux, autour de la grande cheminée.</p><p class="detail">📍 Route de l'Alpe des Chaux 40 · 1882 Gryon</p><p class="detail" id="t2">🚶 Environ 15 min à pied depuis l'appartement</p><a class="site" href="http://www.lerefugedefrience.ch" id="s2">Voir le site web</a></div></div></div>
+<div class="bottom"><a class="back" href="index.html" id="back">← Retour à l'accueil</a><div class="footer">NATURE | DÉTENTE | GRAND AIR</div></div></div>
+<script>const T={fr:["Cuisine de terroir bistronomique, avec une carte courte qui évolue au fil des saisons.","🚗 Environ 5 min depuis l'appartement","Cuisine de saison et spécialités suisses dans un chalet chaleureux, autour de la grande cheminée.","🚶 Environ 15 min à pied depuis l'appartement","Voir le site web","← Retour à l'accueil"],en:["Seasonal bistronomic cuisine featuring local produce and a concise, regularly changing menu.","🚗 About 5 min from the apartment","Seasonal cuisine and Swiss specialities in a cosy chalet around the large fireplace.","🚶 About 15 min walk from the apartment","Visit website","← Back to home"],de:["Saisonale, regionale Bistroküche mit einer kleinen, regelmäßig wechselnden Karte.","🚗 Ca. 5 Min. von der Wohnung entfernt","Saisonale Küche und Schweizer Spezialitäten in einem gemütlichen Chalet mit grossem Kamin.","🚶 Ca. 15 Gehminuten von der Wohnung entfernt","Website ansehen","← Zurück zur Startseite"]};function lang(l){let x=T[l]||T.fr;["d1","t1","d2","t2"].forEach((id,i)=>document.getElementById(id).textContent=x[i]);s1.textContent=s2.textContent=x[4];back.textContent=x[5];document.querySelectorAll("[data-l]").forEach(b=>b.classList.toggle("active",b.dataset.l==l));localStorage.setItem("gryontv-language",l)}document.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>lang(b.dataset.l));lang(localStorage.getItem("gryontv-language")||"fr");let f=[...document.querySelectorAll("[data-l],.site,.back")],i=0;f.forEach((e,n)=>e.onfocus=()=>i=n);document.onkeydown=e=>{if(["ArrowRight","ArrowDown"].includes(e.key)){e.preventDefault();f[i=(i+1)%f.length].focus()}if(["ArrowLeft","ArrowUp"].includes(e.key)){e.preventDefault();f[i=(i-1+f.length)%f.length].focus()}if(e.key=="Enter"&&f.includes(document.activeElement))document.activeElement.click()};</script></body></html>
