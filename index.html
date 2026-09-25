@@ -96,7 +96,7 @@ body{
     <a class="card" href="infos-pratiques.html"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 10v7"/><circle cx="12" cy="7" r=".7" fill="white"/></svg><span data-i18n="practical">Infos pratiques</span></a>
     <a class="card" href="wifi.html"><svg class="icon" viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0114 0"/><path d="M8 15.5a6 6 0 018 0"/><path d="M11 18.5a2 2 0 012 0"/><circle cx="12" cy="21" r=".7" fill="white"/></svg><span data-i18n="wifi">Wi-Fi</span></a>
     <a class="card" href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M3 20L9 8l3 5 2-3 7 10z"/><path d="M7 20l5-7"/></svg><span data-i18n="activities">Activités</span></a>
-    <a class="card" href="restaurants.html"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3v8"/><path d="M3 3v5c0 2 1 3 3 3s3-1 3-3V3"/><path d="M6 11v10"/><path d="M16 3v18"/><path d="M16 3c3 2 4 5 4 8h-4"/></svg><span data-i18n="restaurants">Restaurants</span></a>
+    <a class="card" href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3v8"/><path d="M3 3v5c0 2 1 3 3 3s3-1 3-3V3"/><path d="M6 11v10"/><path d="M16 3v18"/><path d="M16 3c3 2 4 5 4 8h-4"/></svg><span data-i18n="restaurants">Restaurants</span></a>
     <a class="card" href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M4 21h10V3H4z"/><path d="M14 12h7"/><path d="M18 8l4 4-4 4"/></svg><span data-i18n="departure">Départ</span></a>
   </div>
 
@@ -165,7 +165,7 @@ document.addEventListener("keydown",(e)=>{
     e.preventDefault();
     if(onLang) focusLang(langIndex+1);
     else if(onCard) focusCard(cardIndex+1);
-    else focusCard(0);
+    else 
   }else if(key==="ArrowLeft" || code===21){
     e.preventDefault();
     if(onLang) focusLang(langIndex-1);
@@ -191,8 +191,21 @@ document.addEventListener("keydown",(e)=>{
 });
 
 /* Au chargement TV, placer le curseur sur "Infos pratiques" */
-setTimeout(()=>focusCard(0), 300);
 
+window.addEventListener("pageshow",()=>{
+  if(document.activeElement) document.activeElement.blur();
+});
+
+
+</script>
+
+<script>
+function clearHomeFocus(){
+  if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  document.querySelectorAll('.card,.menu a,a').forEach(el=>el.classList.remove('focus','focused','selected','active-focus'));
+}
+window.addEventListener('load',()=>setTimeout(clearHomeFocus,150));
+window.addEventListener('pageshow',()=>setTimeout(clearHomeFocus,150));
 </script>
 </body>
 </html>
