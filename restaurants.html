@@ -34,6 +34,27 @@ button.nav{cursor:pointer}.languages button:focus,.site:focus,.back:focus,.nav:f
   align-items:start !important;
 }
 
+
+/* CORRECTION FINALE TV */
+.page3{align-items:start !important;}
+.card{
+  height:auto !important;
+  min-height:0 !important;
+  padding-bottom:0 !important;
+  align-self:start !important;
+}
+.photo{
+  height:27vh !important;
+  flex:0 0 27vh !important;
+  object-fit:cover !important;
+}
+.info{
+  flex:0 0 auto !important;
+  padding-bottom:1.25vh !important;
+}
+.bottom{position:relative;z-index:50;}
+.back{position:relative;z-index:60;}
+
 </style></head><body>
 <div class="page">
 <div class="top"><div><div class="brand-main"><svg class="brand-mountains" viewBox="0 0 36 22"><path d="M1.5 19L10 8.5L15.5 15.2"/><path d="M8.5 19L19 3L28 16"/><path d="M20.5 19L27 10.5L34.5 19"/></svg><span>L'ALPE DES CHAUX</span></div><div class="gry">GRYON</div></div>
@@ -51,7 +72,7 @@ button.nav{cursor:pointer}.languages button:focus,.site:focus,.back:focus,.nav:f
 <div class="card"><img class="photo" src="miroir-argentine.webp"><div class="info"><h2>Miroir d'Argentine</h2><p class="desc" id="d6"></p><div class="details-block"><p class="detail">📍 Route de Solalex 148 · 1882 Gryon</p><p class="detail" id="t6"></p><p class="detail phone">☎ +41 24 498 14 46</p><p class="detail" id="w6"></p></div></div></div>
 </div>
 </div></div>
-<div class="sidehint left" id="leftHint">‹</div><div class="sidehint right" id="rightHint">›</div><div class="bottom"><a class="back" href="index.html" id="back"></a><div class="footer">NATURE | DÉTENTE | ÉVASION</div></div>
+<div class="sidehint left" id="leftHint">‹</div><div class="sidehint right" id="rightHint">›</div><div class="bottom"><a class="back" href="./index.html" id="back"></a><div class="footer">NATURE | DÉTENTE | ÉVASION</div></div>
 </div>
 <script>
 const tr={
@@ -102,28 +123,32 @@ const page1Sites=[
 document.addEventListener("keydown",e=>{
  const a=document.activeElement;
  const langs=[document.getElementById("fr"),document.getElementById("en"),document.getElementById("de")];
- if(e.key==="ArrowUp"){if(!langs.includes(a)){langs[0].focus();e.preventDefault();}return;}
+ const back=document.getElementById("back");
+
+ if(e.key==="ArrowUp"){
+   if(a===back){ langs[0].focus(); }
+   else if(!langs.includes(a)){ langs[0].focus(); }
+   e.preventDefault(); return;
+ }
  if(e.key==="ArrowRight"){
    if(langs.includes(a)) langs[Math.min(2,langs.indexOf(a)+1)].focus();
-   else if(pg===0){show(1);if(document.activeElement)document.activeElement.blur();}
-   e.preventDefault();return;
+   else if(a!==back && pg===0) show(1);
+   e.preventDefault(); return;
  }
  if(e.key==="ArrowLeft"){
    if(langs.includes(a)) langs[Math.max(0,langs.indexOf(a)-1)].focus();
-   else if(pg===1){show(0);if(document.activeElement)document.activeElement.blur();}
-   e.preventDefault();return;
+   else if(a!==back && pg===1) show(0);
+   e.preventDefault(); return;
  }
- if(e.key==="ArrowDown"&&langs.includes(a)){a.blur();e.preventDefault();}
-});
-</script>
-<script>
-document.addEventListener("keydown", function(e){
-  const el=document.activeElement;
-  if((e.key==="Enter" || e.key==="NumpadEnter") && el && el.classList && el.classList.contains("back")){
-    window.location.href="index.html";
-    e.preventDefault();
-  }
-});
-</script>
+ if(e.key==="ArrowDown"){
+   back.focus();
+   e.preventDefault(); return;
+ }
+ if((e.key==="Enter" || e.key==="NumpadEnter") && a===back){
+   window.location.href="./index.html";
+   e.preventDefault(); return;
+ }
+});</script>
+
 
 </body></html>
