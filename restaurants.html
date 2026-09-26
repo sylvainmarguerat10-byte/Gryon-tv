@@ -22,6 +22,18 @@ h1{font:2.1vw Georgia,serif;margin:1.2vh 0 1.4vh}
 .navs{display:flex;align-items:center;gap:.7vw}.dots{font-size:1vw;letter-spacing:.3em;color:#ffffffb5}
 .footer{font-size:.52vw;letter-spacing:.35em;color:#ffffffc7}.sidehint{position:fixed;top:50%;transform:translateY(-50%);font-size:4.4vw;line-height:1;color:#fff;text-shadow:0 2px 10px #000;z-index:20;pointer-events:none;opacity:.92}.sidehint.right{right:1.1vw}.sidehint.left{left:1.1vw;display:none}
 button.nav{cursor:pointer}.languages button:focus,.site:focus,.back:focus,.nav:focus{outline:2px solid #fff;outline-offset:2px}
+
+/* Ajustements TV : cartes plus compactes + bouton retour fiable */
+.card{
+  height:auto !important;
+  min-height:0 !important;
+  align-self:start;
+  padding-bottom:1.4vh !important;
+}
+.cards{
+  align-items:start !important;
+}
+
 </style></head><body>
 <div class="page">
 <div class="top"><div><div class="brand-main"><svg class="brand-mountains" viewBox="0 0 36 22"><path d="M1.5 19L10 8.5L15.5 15.2"/><path d="M8.5 19L19 3L28 16"/><path d="M20.5 19L27 10.5L34.5 19"/></svg><span>L'ALPE DES CHAUX</span></div><div class="gry">GRYON</div></div>
@@ -103,4 +115,15 @@ document.addEventListener("keydown",e=>{
  }
  if(e.key==="ArrowDown"&&langs.includes(a)){a.blur();e.preventDefault();}
 });
-</script></body></html>
+</script>
+<script>
+document.addEventListener("keydown", function(e){
+  const el=document.activeElement;
+  if((e.key==="Enter" || e.key==="NumpadEnter") && el && el.classList && el.classList.contains("back")){
+    window.location.href="index.html";
+    e.preventDefault();
+  }
+});
+</script>
+
+</body></html>
