@@ -109,6 +109,13 @@ button.nav{cursor:pointer}.languages button:focus,.site:focus,.back:focus,.nav:f
   padding-top:.45vh !important;
 }
 
+
+/* PAGE 2 : espace juste suffisant pour la ligne motoneige */
+#p1 .card{
+  height:64vh !important;
+  max-height:64vh !important;
+}
+
 </style></head><body>
 <div class="page">
 <div class="top"><div><div class="brand-main"><svg class="brand-mountains" viewBox="0 0 36 22"><path d="M1.5 19L10 8.5L15.5 15.2"/><path d="M8.5 19L19 3L28 16"/><path d="M20.5 19L27 10.5L34.5 19"/></svg><span>L'ALPE DES CHAUX</span></div><div class="gry">GRYON</div></div>
@@ -122,8 +129,8 @@ button.nav{cursor:pointer}.languages button:focus,.site:focus,.back:focus,.nav:f
 </div>
 <div class="page3">
 <div class="card"><img class="photo" src="chez-mantisi.jpg"><div class="info"><h2>Chez Mantisi</h2><p class="desc" id="d4"></p><div class="details-block"><p class="detail">📍 Centre sportif de Villars · 1884 Villars-sur-Ollon</p><p class="detail" id="t4"></p><p class="detail phone">☎ +41 24 495 12 20</p></div></div></div>
-<div class="card"><img class="photo" src="refuge-solalex.webp"><div class="info"><h2>Refuge de Solalex</h2><p class="desc" id="d5"></p><div class="details-block"><p class="detail">📍 Route de Solalex 149 · 1882 Gryon</p><p class="detail" id="t5"></p><p class="detail phone">☎ +41 24 498 27 09</p><p class="detail" id="w5"></p></div></div></div>
-<div class="card"><img class="photo" src="miroir-argentine.webp"><div class="info"><h2>Miroir d'Argentine</h2><p class="desc" id="d6"></p><div class="details-block"><p class="detail">📍 Route de Solalex 148 · 1882 Gryon</p><p class="detail" id="t6"></p><p class="detail phone">☎ +41 24 498 14 46</p><p class="detail" id="w6"></p></div></div></div>
+<div class="card"><img class="photo" src="refuge-solalex.webp"><div class="info"><h2>Refuge de Solalex</h2><p class="desc" id="d5"></p><div class="details-block"><p class="detail">📍 Route de Solalex 149 · 1882 Gryon</p><p class="detail" id="t5"></p><p class="detail phone">☎ +41 24 498 27 09</p><p class="detail" id="w5"></p><p class="detail" id="m5"></p></div></div></div>
+<div class="card"><img class="photo" src="miroir-argentine.webp"><div class="info"><h2>Miroir d'Argentine</h2><p class="desc" id="d6"></p><div class="details-block"><p class="detail">📍 Route de Solalex 148 · 1882 Gryon</p><p class="detail" id="t6"></p><p class="detail phone">☎ +41 24 498 14 46</p><p class="detail" id="w6"></p><p class="detail" id="m6"></p></div></div></div>
 </div>
 </div></div>
 <div class="sidehint left" id="leftHint">‹</div><div class="sidehint right" id="rightHint">›</div><div class="bottom"><a class="back" href="./index.html" id="back"></a><div class="footer">NATURE | DÉTENTE | ÉVASION</div></div>
@@ -133,11 +140,11 @@ const tr={
 fr:{fav:"❤️ Notre coup de cœur",site:"Voir le site web",back:"← Retour à l'accueil",
 d:["Cuisine de terroir bistronomique, avec une carte courte qui évolue au fil des saisons.","Cuisine de saison et spécialités suisses dans un chalet chaleureux, autour de la grande cheminée.","Cuisine variée, pizzas et plats à emporter, avec une terrasse panoramique au cœur de l'Alpe des Chaux.","Restaurant italien proposant des spécialités authentiques dans un cadre moderne et chaleureux.","Cuisine suisse traditionnelle dans un refuge de montagne au cœur du vallon de Solalex.","Cuisine raffinée et créative, mettant en valeur des produits de qualité dans le cadre exceptionnel du vallon de Solalex."],
 t:["🚗 Environ 5 min depuis l'appartement","Environ 15 min à pied depuis l'appartement","Environ 5 min à pied depuis l'appartement","🚗 Environ 20 min en voiture depuis l'appartement","☀️ Été : 🚗 env. 15 min en voiture","☀️ Été : 🚗 env. 15 min en voiture"],
-w:["❄️ Hiver : garer la voiture au parking de Cergnement, puis environ 1 h à pied jusqu’à Solalex","❄️ Hiver : garer la voiture au parking de Cergnement, puis environ 1 h à pied jusqu’à Solalex"]},
+w:["❄️ Hiver : garer la voiture au parking de Cergnement, puis environ 1 h à pied jusqu’à Solalex","❄️ Hiver : garer la voiture au parking de Cergnement, puis environ 1 h à pied jusqu’à Solalex"],m:"Possibilité de rejoindre le restaurant en motoneige sur réservation."},
 en:{fav:"❤️ Our favourite",site:"Visit website",back:"← Back to home",
 d:["Seasonal bistronomic cuisine featuring local produce.","Seasonal cuisine and Swiss specialities in a cosy chalet around the large fireplace.","Varied cuisine, pizzas and takeaway dishes with a panoramic terrace.","Italian restaurant serving authentic specialities in a modern and welcoming setting.","Traditional Swiss cuisine in a mountain refuge in the Solalex valley.","Refined and creative cuisine showcasing quality ingredients in the exceptional setting of the Solalex valley."],
 t:["🚗 About 5 min from the apartment","About 15 min walk from the apartment","About 5 min walk from the apartment","🚗 About 20 min by car from the apartment","☀️ Summer: 🚗 about 15 min by car","☀️ Summer: 🚗 about 15 min by car"],
-w:["❄️ Winter: park at Cergnement, then about 1 h walk to Solalex","❄️ Winter: park at Cergnement, then about 1 h walk to Solalex"]},
+w:["❄️ Winter: park at Cergnement, then about 1 h walk to Solalex","❄️ Winter: park at Cergnement, then about 1 h walk to Solalex"],m:"The restaurant can be reached by snowmobile with advance reservation."},
 de:{fav:"❤️ Unser Favorit",site:"Website ansehen",back:"← Zurück zur Startseite",
 d:["Saisonale, regionale Bistroküche mit einer kleinen, wechselnden Karte.","Saisonale Küche und Schweizer Spezialitäten in einem gemütlichen Chalet mit Kamin.","Abwechslungsreiche Küche, Pizza und Take-away mit Panoramaterrasse.","Italienisches Restaurant mit authentischen Spezialitäten in modernem Ambiente.","Traditionelle Schweizer Küche in einem Berggasthaus im Solalex-Tal.","Raffinierte und kreative Küche mit hochwertigen Produkten in der aussergewöhnlichen Umgebung des Solalex-Tals."],
 t:["🚗 Ca. 5 Min. von der Wohnung","Ca. 15 Gehminuten von der Wohnung","Ca. 5 Gehminuten von der Wohnung","🚗 Ca. 20 Min. mit dem Auto","☀️ Sommer: 🚗 ca. 15 Min. mit dem Auto","☀️ Sommer: 🚗 ca. 15 Min. mit dem Auto"],
@@ -152,6 +159,8 @@ function setLang(l){
  }
  document.getElementById("w5").textContent=x.w[0];
  document.getElementById("w6").textContent=x.w[1];
+ const moto = (lang==="fr" ? "Possibilité de rejoindre le restaurant en motoneige sur réservation." : lang==="en" ? "The restaurant can be reached by snowmobile with advance reservation." : "Das Restaurant kann nach vorheriger Reservierung mit dem Motorschlitten erreicht werden.");
+ document.getElementById("m5").textContent=moto; document.getElementById("m6").textContent=moto;
  document.getElementById("back").textContent=x.back;
  ["fr","en","de"].forEach(k=>document.getElementById(k).classList.toggle("active",k===l));
  localStorage.setItem("gryontv-language",l);
