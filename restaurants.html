@@ -55,6 +55,31 @@ button.nav{cursor:pointer}.languages button:focus,.site:focus,.back:focus,.nav:f
 .bottom{position:relative;z-index:50;}
 .back{position:relative;z-index:60;}
 
+
+/* ALIGNEMENT FINAL DES CARTES */
+.page3{
+  align-items:stretch !important;
+}
+.card{
+  height:auto !important;
+  min-height:0 !important;
+  align-self:stretch !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.photo{
+  height:27vh !important;
+  min-height:27vh !important;
+  flex:0 0 27vh !important;
+  object-fit:cover !important;
+}
+.info{
+  flex:1 1 auto !important;
+  display:flex !important;
+  flex-direction:column !important;
+  padding-bottom:1.25vh !important;
+}
+
 </style></head><body>
 <div class="page">
 <div class="top"><div><div class="brand-main"><svg class="brand-mountains" viewBox="0 0 36 22"><path d="M1.5 19L10 8.5L15.5 15.2"/><path d="M8.5 19L19 3L28 16"/><path d="M20.5 19L27 10.5L34.5 19"/></svg><span>L'ALPE DES CHAUX</span></div><div class="gry">GRYON</div></div>
@@ -124,27 +149,47 @@ document.addEventListener("keydown",e=>{
  const a=document.activeElement;
  const langs=[document.getElementById("fr"),document.getElementById("en"),document.getElementById("de")];
  const back=document.getElementById("back");
+ const onLang=langs.includes(a);
+ const onBack=(a===back);
+
+ function middle(){
+   if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
+ }
 
  if(e.key==="ArrowUp"){
-   if(a===back){ langs[0].focus(); }
-   else if(!langs.includes(a)){ langs[0].focus(); }
+   if(!onLang){langs[0].focus();}
    e.preventDefault(); return;
  }
- if(e.key==="ArrowRight"){
-   if(langs.includes(a)) langs[Math.min(2,langs.indexOf(a)+1)].focus();
-   else if(a!==back && pg===0) show(1);
-   e.preventDefault(); return;
- }
- if(e.key==="ArrowLeft"){
-   if(langs.includes(a)) langs[Math.max(0,langs.indexOf(a)-1)].focus();
-   else if(a!==back && pg===1) show(0);
-   e.preventDefault(); return;
- }
+
  if(e.key==="ArrowDown"){
-   back.focus();
+   if(onLang || onBack){middle();}
+   else{back.focus();}
    e.preventDefault(); return;
  }
- if((e.key==="Enter" || e.key==="NumpadEnter") && a===back){
+
+ if(e.key==="ArrowRight"){
+   if(onLang){
+     langs[Math.min(2,langs.indexOf(a)+1)].focus();
+   }else if(onBack){
+     middle();
+   }else if(pg===0){
+     show(1); middle();
+   }
+   e.preventDefault(); return;
+ }
+
+ if(e.key==="ArrowLeft"){
+   if(onLang){
+     langs[Math.max(0,langs.indexOf(a)-1)].focus();
+   }else if(onBack){
+     middle();
+   }else if(pg===1){
+     show(0); middle();
+   }
+   e.preventDefault(); return;
+ }
+
+ if((e.key==="Enter" || e.key==="NumpadEnter") && onBack){
    window.location.href="./index.html";
    e.preventDefault(); return;
  }
