@@ -29,13 +29,13 @@ button.nav{cursor:pointer}.languages button:focus,.site:focus,.back:focus,.nav:f
 <h1>Restaurants</h1>
 <div class="viewport"><div class="track" id="track">
 <div class="page3">
-<div class="card"><div class="badge" id="fav">❤️ Notre coup de cœur</div><img class="photo" src="lancolie.jpg"><div class="info"><h2>L'Ancolie</h2><p class="desc" id="d1"></p><p class="detail">📍 Route de Solalex 68 · 1882 Gryon</p><p class="detail" id="t1"></p><p class="detail phone">☎ +41 24 498 22 33</p><a class="site" href="https://www.lancoliegryon.com/" id="s1"></a></div></div>
-<div class="card"><img class="photo" src="refuge-frience.webp"><div class="info"><h2>Refuge de Frience</h2><p class="desc" id="d2"></p><p class="detail">📍 Route de l'Alpe des Chaux 40 · 1882 Gryon</p><p class="detail" id="t2"></p><p class="detail phone">☎ +41 24 498 14 26</p><a class="site" href="http://www.lerefugedefrience.ch" id="s2"></a></div></div>
-<div class="card"><img class="photo" src="chums-chalet.jpg"><div class="info"><h2>Chums Chalet</h2><p class="desc" id="d3"></p><p class="detail">📍 Chemin des Fracherets 2 · 1882 Gryon</p><p class="detail" id="t3"></p><p class="detail phone">☎ +41 76 214 67 92</p><a class="site" href="https://www.alpesvaudoises.ch/fr/P5737/gryon/chums-chalet" id="s3"></a></div></div>
+<div class="card"><div class="badge" id="fav">❤️ Notre coup de cœur</div><img class="photo" src="lancolie.jpg"><div class="info"><h2>L'Ancolie</h2><p class="desc" id="d1"></p><p class="detail">📍 Route de Solalex 68 · 1882 Gryon</p><p class="detail" id="t1"></p><p class="detail phone">☎ +41 24 498 22 33</p></div></div>
+<div class="card"><img class="photo" src="refuge-frience.webp"><div class="info"><h2>Refuge de Frience</h2><p class="desc" id="d2"></p><p class="detail">📍 Route de l'Alpe des Chaux 40 · 1882 Gryon</p><p class="detail" id="t2"></p><p class="detail phone">☎ +41 24 498 14 26</p></div></div>
+<div class="card"><img class="photo" src="chums-chalet.jpg"><div class="info"><h2>Chums Chalet</h2><p class="desc" id="d3"></p><p class="detail">📍 Chemin des Fracherets 2 · 1882 Gryon</p><p class="detail" id="t3"></p><p class="detail phone">☎ +41 76 214 67 92</p></div></div>
 </div>
 <div class="page3">
 <div class="card"><img class="photo" src="chez-mantisi.jpg"><div class="info"><h2>Chez Mantisi</h2><p class="desc" id="d4"></p><p class="detail">📍 Centre sportif de Villars · 1884 Villars-sur-Ollon</p><p class="detail" id="t4"></p><p class="detail phone">☎ +41 24 495 12 20</p></div></div>
-<div class="card"><img class="photo" src="refuge-solalex.webp"><div class="info"><h2>Refuge de Solalex</h2><p class="desc" id="d5"></p><p class="detail" id="t5"></p><p class="detail phone">☎ +41 24 498 27 09</p><p class="detail" id="w5"></p><a class="site" href="https://refuge-solalex.ch/" id="s5"></a></div></div>
+<div class="card"><img class="photo" src="refuge-solalex.webp"><div class="info"><h2>Refuge de Solalex</h2><p class="desc" id="d5"></p><p class="detail" id="t5"></p><p class="detail phone">☎ +41 24 498 27 09</p><p class="detail" id="w5"></p></div></div>
 <div class="card"><img class="photo" src="miroir-argentine.webp"><div class="info"><h2>Miroir d'Argentine</h2><p class="desc" id="d6"></p><p class="detail" id="t6"></p><p class="detail phone">☎ +41 24 498 14 46</p><p class="detail" id="w6"></p></div></div>
 </div>
 </div></div>
@@ -44,15 +44,15 @@ button.nav{cursor:pointer}.languages button:focus,.site:focus,.back:focus,.nav:f
 <script>
 const tr={
 fr:{fav:"❤️ Notre coup de cœur",site:"Voir le site web",back:"← Retour à l'accueil",
-d:["Cuisine de terroir bistronomique, avec une carte courte qui évolue au fil des saisons.","Cuisine de saison et spécialités suisses dans un chalet chaleureux, autour de la grande cheminée.","Cuisine variée, pizzas et plats à emporter, avec une terrasse panoramique au cœur de l'Alpe des Chaux.","Restaurant italien proposant des spécialités authentiques dans un cadre moderne et chaleureux.","Cuisine suisse traditionnelle dans un refuge de montagne au cœur du vallon de Solalex.","Cuisine de montagne dans le cadre spectaculaire de Solalex."],
+d:["Cuisine de terroir bistronomique, avec une carte courte qui évolue au fil des saisons.","Cuisine de saison et spécialités suisses dans un chalet chaleureux, autour de la grande cheminée.","Cuisine variée, pizzas et plats à emporter, avec une terrasse panoramique au cœur de l'Alpe des Chaux.","Restaurant italien proposant des spécialités authentiques dans un cadre moderne et chaleureux.","Cuisine suisse traditionnelle dans un refuge de montagne au cœur du vallon de Solalex.","Cuisine raffinée et créative, mettant en valeur des produits de qualité dans le cadre exceptionnel du vallon de Solalex."],
 t:["🚗 Environ 5 min depuis l'appartement","Environ 15 min à pied depuis l'appartement","Environ 5 min à pied depuis l'appartement","🚗 Environ 20 min en voiture depuis l'appartement","☀️ Été : 🚗 env. 15 min en voiture","☀️ Été : 🚗 env. 15 min en voiture"],
 w:["❄️ Hiver : garer la voiture au parking de Cergnement, puis environ 1 h à pied jusqu’à Solalex","❄️ Hiver : garer la voiture au parking de Cergnement, puis environ 1 h à pied jusqu’à Solalex"]},
 en:{fav:"❤️ Our favourite",site:"Visit website",back:"← Back to home",
-d:["Seasonal bistronomic cuisine featuring local produce.","Seasonal cuisine and Swiss specialities in a cosy chalet around the large fireplace.","Varied cuisine, pizzas and takeaway dishes with a panoramic terrace.","Italian restaurant serving authentic specialities in a modern and welcoming setting.","Traditional Swiss cuisine in a mountain refuge in the Solalex valley.","Mountain cuisine in the spectacular setting of Solalex."],
+d:["Seasonal bistronomic cuisine featuring local produce.","Seasonal cuisine and Swiss specialities in a cosy chalet around the large fireplace.","Varied cuisine, pizzas and takeaway dishes with a panoramic terrace.","Italian restaurant serving authentic specialities in a modern and welcoming setting.","Traditional Swiss cuisine in a mountain refuge in the Solalex valley.","Refined and creative cuisine showcasing quality ingredients in the exceptional setting of the Solalex valley."],
 t:["🚗 About 5 min from the apartment","About 15 min walk from the apartment","About 5 min walk from the apartment","🚗 About 20 min by car from the apartment","☀️ Summer: 🚗 about 15 min by car","☀️ Summer: 🚗 about 15 min by car"],
 w:["❄️ Winter: park at Cergnement, then about 1 h walk to Solalex","❄️ Winter: park at Cergnement, then about 1 h walk to Solalex"]},
 de:{fav:"❤️ Unser Favorit",site:"Website ansehen",back:"← Zurück zur Startseite",
-d:["Saisonale, regionale Bistroküche mit einer kleinen, wechselnden Karte.","Saisonale Küche und Schweizer Spezialitäten in einem gemütlichen Chalet mit Kamin.","Abwechslungsreiche Küche, Pizza und Take-away mit Panoramaterrasse.","Italienisches Restaurant mit authentischen Spezialitäten in modernem Ambiente.","Traditionelle Schweizer Küche in einem Berggasthaus im Solalex-Tal.","Bergküche in der spektakulären Umgebung von Solalex."],
+d:["Saisonale, regionale Bistroküche mit einer kleinen, wechselnden Karte.","Saisonale Küche und Schweizer Spezialitäten in einem gemütlichen Chalet mit Kamin.","Abwechslungsreiche Küche, Pizza und Take-away mit Panoramaterrasse.","Italienisches Restaurant mit authentischen Spezialitäten in modernem Ambiente.","Traditionelle Schweizer Küche in einem Berggasthaus im Solalex-Tal.","Raffinierte und kreative Küche mit hochwertigen Produkten in der aussergewöhnlichen Umgebung des Solalex-Tals."],
 t:["🚗 Ca. 5 Min. von der Wohnung","Ca. 15 Gehminuten von der Wohnung","Ca. 5 Gehminuten von der Wohnung","🚗 Ca. 20 Min. mit dem Auto","☀️ Sommer: 🚗 ca. 15 Min. mit dem Auto","☀️ Sommer: 🚗 ca. 15 Min. mit dem Auto"],
 w:["❄️ Winter: Auto in Cergnement parkieren, dann ca. 1 Std. zu Fuss bis Solalex","❄️ Winter: Auto in Cergnement parkieren, dann ca. 1 Std. zu Fuss bis Solalex"]}};
 
@@ -65,7 +65,6 @@ function setLang(l){
  }
  document.getElementById("w5").textContent=x.w[0];
  document.getElementById("w6").textContent=x.w[1];
- ["s1","s2","s3","s5"].forEach(id=>document.getElementById(id).textContent=x.site);
  document.getElementById("back").textContent=x.back;
  ["fr","en","de"].forEach(k=>document.getElementById(k).classList.toggle("active",k===l));
  localStorage.setItem("gryontv-language",l);
@@ -90,11 +89,18 @@ const page1Sites=[
 
 document.addEventListener("keydown",e=>{
  const a=document.activeElement;
- const fr=document.getElementById("fr"), en=document.getElementById("en"), de=document.getElementById("de");
- const langs=[fr,en,de];
- if(e.key==="ArrowUp"){if(!langs.includes(a)){fr.focus();e.preventDefault();}return;}
- if(e.key==="ArrowRight"){if(langs.includes(a)){langs[Math.min(2,langs.indexOf(a)+1)].focus();e.preventDefault();return;}if(pg===0){const idx=page1Sites.indexOf(a);if(idx===-1) page1Sites[0].focus();else if(idx<2) page1Sites[idx+1].focus();else {show(1);setTimeout(()=>document.activeElement.blur(),480);}}e.preventDefault();return;}
- if(e.key==="ArrowLeft"){if(langs.includes(a)){langs[Math.max(0,langs.indexOf(a)-1)].focus();e.preventDefault();return;}if(pg===1){show(0);setTimeout(()=>page1Sites[2].focus(),480);}else{const idx=page1Sites.indexOf(a);if(idx>0) page1Sites[idx-1].focus();else page1Sites[0].focus();}e.preventDefault();return;}
- if(e.key==="ArrowDown" && langs.includes(a)){if(pg===0) page1Sites[0].focus();e.preventDefault();}
+ const langs=[document.getElementById("fr"),document.getElementById("en"),document.getElementById("de")];
+ if(e.key==="ArrowUp"){if(!langs.includes(a)){langs[0].focus();e.preventDefault();}return;}
+ if(e.key==="ArrowRight"){
+   if(langs.includes(a)) langs[Math.min(2,langs.indexOf(a)+1)].focus();
+   else if(pg===0){show(1);if(document.activeElement)document.activeElement.blur();}
+   e.preventDefault();return;
+ }
+ if(e.key==="ArrowLeft"){
+   if(langs.includes(a)) langs[Math.max(0,langs.indexOf(a)-1)].focus();
+   else if(pg===1){show(0);if(document.activeElement)document.activeElement.blur();}
+   e.preventDefault();return;
+ }
+ if(e.key==="ArrowDown"&&langs.includes(a)){a.blur();e.preventDefault();}
 });
 </script></body></html>
