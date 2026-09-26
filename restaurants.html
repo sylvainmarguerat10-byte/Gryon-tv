@@ -90,24 +90,11 @@ const page1Sites=[
 
 document.addEventListener("keydown",e=>{
  const a=document.activeElement;
- if(e.key==="ArrowRight"){
-   if(pg===0){
-     const idx=page1Sites.indexOf(a);
-     if(idx===-1) page1Sites[0].focus();
-     else if(idx<2) page1Sites[idx+1].focus();
-     else { show(1); setTimeout(()=>document.activeElement.blur(),480); }
-   }
-   e.preventDefault();
- } else if(e.key==="ArrowLeft"){
-   if(pg===1){
-     show(0);
-     setTimeout(()=>page1Sites[2].focus(),480);
-   } else {
-     const idx=page1Sites.indexOf(a);
-     if(idx>0) page1Sites[idx-1].focus();
-     else page1Sites[0].focus();
-   }
-   e.preventDefault();
- }
+ const fr=document.getElementById("fr"), en=document.getElementById("en"), de=document.getElementById("de");
+ const langs=[fr,en,de];
+ if(e.key==="ArrowUp"){if(!langs.includes(a)){fr.focus();e.preventDefault();}return;}
+ if(e.key==="ArrowRight"){if(langs.includes(a)){langs[Math.min(2,langs.indexOf(a)+1)].focus();e.preventDefault();return;}if(pg===0){const idx=page1Sites.indexOf(a);if(idx===-1) page1Sites[0].focus();else if(idx<2) page1Sites[idx+1].focus();else {show(1);setTimeout(()=>document.activeElement.blur(),480);}}e.preventDefault();return;}
+ if(e.key==="ArrowLeft"){if(langs.includes(a)){langs[Math.max(0,langs.indexOf(a)-1)].focus();e.preventDefault();return;}if(pg===1){show(0);setTimeout(()=>page1Sites[2].focus(),480);}else{const idx=page1Sites.indexOf(a);if(idx>0) page1Sites[idx-1].focus();else page1Sites[0].focus();}e.preventDefault();return;}
+ if(e.key==="ArrowDown" && langs.includes(a)){if(pg===0) page1Sites[0].focus();e.preventDefault();}
 });
 </script></body></html>
