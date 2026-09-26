@@ -15,7 +15,7 @@ h1{font:2.1vw Georgia,serif;margin:1.2vh 0 1.4vh}
 .page3{width:50%;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25vw;padding-right:.1vw}
 .card{position:relative;background:#0d171ccd;border:1px solid #ffffff8c;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;height:100%}
 .photo{width:100%;height:46%;object-fit:cover}.info{padding:1.35vh 1.2vw;display:flex;flex-direction:column;flex:1}
-.info h2{font:2.2vw Georgia,serif;margin:0 0 .6vh}.desc{font-size:1.28vw;line-height:1.38;margin:0 0 .7vh}.detail{font-size:1.12vw;line-height:1.42;margin:.12vh 0}.phone{font-weight:700;margin-top:.45vh}
+.info h2{font:2.2vw Georgia,serif;margin:0 0 .6vh}.desc{font-size:1.28vw;line-height:1.38;margin:0 0 .7vh}.details-block{margin-top:1.15vh;padding-top:.7vh;border-top:1px solid rgba(255,255,255,.20)}.detail{font-size:1.12vw;line-height:1.42;margin:.12vh 0}.phone{font-weight:700;margin-top:.45vh}
 .site{align-self:flex-start;margin-top:auto;color:#fff;text-decoration:none;background:#ffffff1f;border:1px solid #ffffff88;border-radius:9px;padding:10px 16px;font-size:1.02vw}
 .badge{position:absolute;top:1.1vh;left:.8vw;background:#7c2028e8;border:1px solid #ffffffb0;border-radius:999px;padding:6px 10px;font-size:.68vw;font-weight:700}
 .bottom{display:flex;align-items:center;justify-content:space-between;margin-top:1.2vh}.back{color:#fff;text-decoration:none;background:#ffffff1f;border:1px solid #ffffff88;border-radius:9px;padding:9px 14px;font-size:.82vw}.nav{color:#fff;background:#10222ee8;border:2px solid #fff;border-radius:12px;padding:10px 22px;font-size:1.05vw;font-weight:700;min-width:9vw}
@@ -29,14 +29,14 @@ button.nav{cursor:pointer}.languages button:focus,.site:focus,.back:focus,.nav:f
 <h1>Restaurants</h1>
 <div class="viewport"><div class="track" id="track">
 <div class="page3">
-<div class="card"><div class="badge" id="fav">❤️ Notre coup de cœur</div><img class="photo" src="lancolie.jpg"><div class="info"><h2>L'Ancolie</h2><p class="desc" id="d1"></p><p class="detail">📍 Route de Solalex 68 · 1882 Gryon</p><p class="detail" id="t1"></p><p class="detail phone">☎ +41 24 498 22 33</p></div></div>
-<div class="card"><img class="photo" src="refuge-frience.webp"><div class="info"><h2>Refuge de Frience</h2><p class="desc" id="d2"></p><p class="detail">📍 Route de l'Alpe des Chaux 40 · 1882 Gryon</p><p class="detail" id="t2"></p><p class="detail phone">☎ +41 24 498 14 26</p></div></div>
-<div class="card"><img class="photo" src="chums-chalet.jpg"><div class="info"><h2>Chums Chalet</h2><p class="desc" id="d3"></p><p class="detail">📍 Chemin des Fracherets 2 · 1882 Gryon</p><p class="detail" id="t3"></p><p class="detail phone">☎ +41 76 214 67 92</p></div></div>
+<div class="card"><div class="badge" id="fav">❤️ Notre coup de cœur</div><img class="photo" src="lancolie.jpg"><div class="info"><h2>L'Ancolie</h2><p class="desc" id="d1"></p><div class="details-block"><p class="detail">📍 Route de Solalex 68 · 1882 Gryon</p><p class="detail" id="t1"></p><p class="detail phone">☎ +41 24 498 22 33</p></div></div></div>
+<div class="card"><img class="photo" src="refuge-frience.webp"><div class="info"><h2>Refuge de Frience</h2><p class="desc" id="d2"></p><div class="details-block"><p class="detail">📍 Route de l'Alpe des Chaux 40 · 1882 Gryon</p><p class="detail" id="t2"></p><p class="detail phone">☎ +41 24 498 14 26</p></div></div></div>
+<div class="card"><img class="photo" src="chums-chalet.jpg"><div class="info"><h2>Chums Chalet</h2><p class="desc" id="d3"></p><div class="details-block"><p class="detail">📍 Chemin des Fracherets 2 · 1882 Gryon</p><p class="detail" id="t3"></p><p class="detail phone">☎ +41 76 214 67 92</p></div></div></div>
 </div>
 <div class="page3">
-<div class="card"><img class="photo" src="chez-mantisi.jpg"><div class="info"><h2>Chez Mantisi</h2><p class="desc" id="d4"></p><p class="detail">📍 Centre sportif de Villars · 1884 Villars-sur-Ollon</p><p class="detail" id="t4"></p><p class="detail phone">☎ +41 24 495 12 20</p></div></div>
-<div class="card"><img class="photo" src="refuge-solalex.webp"><div class="info"><h2>Refuge de Solalex</h2><p class="desc" id="d5"></p><p class="detail" id="t5"></p><p class="detail phone">☎ +41 24 498 27 09</p><p class="detail" id="w5"></p></div></div>
-<div class="card"><img class="photo" src="miroir-argentine.webp"><div class="info"><h2>Miroir d'Argentine</h2><p class="desc" id="d6"></p><p class="detail" id="t6"></p><p class="detail phone">☎ +41 24 498 14 46</p><p class="detail" id="w6"></p></div></div>
+<div class="card"><img class="photo" src="chez-mantisi.jpg"><div class="info"><h2>Chez Mantisi</h2><p class="desc" id="d4"></p><div class="details-block"><p class="detail">📍 Centre sportif de Villars · 1884 Villars-sur-Ollon</p><p class="detail" id="t4"></p><p class="detail phone">☎ +41 24 495 12 20</p></div></div></div>
+<div class="card"><img class="photo" src="refuge-solalex.webp"><div class="info"><h2>Refuge de Solalex</h2><p class="desc" id="d5"></p><div class="details-block"><p class="detail">📍 Route de Solalex 149 · 1882 Gryon</p><p class="detail" id="t5"></p><p class="detail phone">☎ +41 24 498 27 09</p><p class="detail" id="w5"></p></div></div></div>
+<div class="card"><img class="photo" src="miroir-argentine.webp"><div class="info"><h2>Miroir d'Argentine</h2><p class="desc" id="d6"></p><div class="details-block"><p class="detail">📍 Route de Solalex 148 · 1882 Gryon</p><p class="detail" id="t6"></p><p class="detail phone">☎ +41 24 498 14 46</p><p class="detail" id="w6"></p></div></div></div>
 </div>
 </div></div>
 <div class="sidehint left" id="leftHint">‹</div><div class="sidehint right" id="rightHint">›</div><div class="bottom"><a class="back" href="index.html" id="back"></a><div class="footer">NATURE | DÉTENTE | ÉVASION</div></div>
