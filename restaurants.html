@@ -110,12 +110,6 @@ button.nav{cursor:pointer}.languages button:focus,.site:focus,.back:focus,.nav:f
 }
 
 
-/* PAGE 2 : espace juste suffisant pour la ligne motoneige */
-#p1 .card{
-  height:64vh !important;
-  max-height:64vh !important;
-}
-
 </style></head><body>
 <div class="page">
 <div class="top"><div><div class="brand-main"><svg class="brand-mountains" viewBox="0 0 36 22"><path d="M1.5 19L10 8.5L15.5 15.2"/><path d="M8.5 19L19 3L28 16"/><path d="M20.5 19L27 10.5L34.5 19"/></svg><span>L'ALPE DES CHAUX</span></div><div class="gry">GRYON</div></div>
@@ -159,7 +153,7 @@ function setLang(l){
  }
  document.getElementById("w5").textContent=x.w[0];
  document.getElementById("w6").textContent=x.w[1];
- const moto = (lang==="fr" ? "Possibilité de rejoindre le restaurant en motoneige sur réservation." : lang==="en" ? "The restaurant can be reached by snowmobile with advance reservation." : "Das Restaurant kann nach vorheriger Reservierung mit dem Motorschlitten erreicht werden.");
+ const moto = (l==="fr" ? "Possibilité de rejoindre le restaurant en motoneige sur réservation." : l==="en" ? "The restaurant can be reached by snowmobile with advance reservation." : "Das Restaurant kann nach vorheriger Reservierung mit dem Motorschlitten erreicht werden.");
  document.getElementById("m5").textContent=moto; document.getElementById("m6").textContent=moto;
  document.getElementById("back").textContent=x.back;
  ["fr","en","de"].forEach(k=>document.getElementById(k).classList.toggle("active",k===l));
@@ -176,12 +170,6 @@ function show(n){
  document.getElementById("rightHint").style.display=pg===0?"block":"none";
 }
 show(0);
-
-const page1Sites=[
- document.getElementById("s1"),
- document.getElementById("s2"),
- document.getElementById("s3")
-];
 
 document.addEventListener("keydown",e=>{
  const a=document.activeElement;
